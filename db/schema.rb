@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_043446) do
+ActiveRecord::Schema.define(version: 2020_11_24_132312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boxes", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "name"
+    t.text "comment"
+    t.string "qr_code"
+    t.string "size"
+    t.datetime "packing_date"
+    t.boolean "full"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_boxes_on_project_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.text "comment"
+    t.bigint "box_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "packing_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["box_id"], name: "index_items_on_box_id"
+    t.index ["project_id"], name: "index_items_on_project_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +66,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_043446) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "boxes", "projects"
+  add_foreign_key "items", "boxes"
+  add_foreign_key "items", "projects"
+  add_foreign_key "projects", "users"
 end
