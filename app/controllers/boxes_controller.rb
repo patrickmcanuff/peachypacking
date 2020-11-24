@@ -20,7 +20,11 @@ class BoxesController < ApplicationController
     @box = Box.new(box_params)
     project = params[:project_id]
     @box.project_id = project
-    @box.save
+    if @box.save
+      redirect_to project_boxes_path(project)
+    else
+      render :index
+    end
   end
 
   def box_params
