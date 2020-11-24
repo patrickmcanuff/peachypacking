@@ -4,6 +4,6 @@ class ProjectsController < ApplicationController
   end
 
   def scan
-    
+
   end
 end
