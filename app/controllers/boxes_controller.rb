@@ -39,5 +39,4 @@ class BoxesController < ApplicationController
   def box_params
     params.require(:box).permit(:name, :comment, :size, :packing_date, :project_id)
   end
-
 end
