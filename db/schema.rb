@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_11_25_171325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "box_tags", force: :cascade do |t|
+    t.bigint "box_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["box_id"], name: "index_box_tags_on_box_id"
+    t.index ["tag_id"], name: "index_box_tags_on_tag_id"
+  end
 
   create_table "boxes", force: :cascade do |t|
     t.bigint "project_id", null: false
@@ -26,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_11_25_171325) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_boxes_on_project_id"
+  end
+
+  create_table "item_tags", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_item_tags_on_item_id"
+    t.index ["tag_id"], name: "index_item_tags_on_tag_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -67,7 +86,11 @@ ActiveRecord::Schema.define(version: 2020_11_25_171325) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "box_tags", "boxes"
+  add_foreign_key "box_tags", "tags"
   add_foreign_key "boxes", "projects"
+  add_foreign_key "item_tags", "items"
+  add_foreign_key "item_tags", "tags"
   add_foreign_key "items", "boxes"
   add_foreign_key "items", "projects"
   add_foreign_key "projects", "users"

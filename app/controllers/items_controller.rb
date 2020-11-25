@@ -1,10 +1,8 @@
 class ItemsController < ApplicationController
   def edit
-
   end
 
   def destroy
-
   end
 
   def new
@@ -29,5 +27,8 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :comment, :box, :packing_date)
+  end
+
+  def create
   end
 end
