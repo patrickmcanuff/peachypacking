@@ -1,5 +1,6 @@
 <% @boxes.each do |box| %>
   <%= box.name %>
+  <%= link_to "edit this box", edit_box_path(box.id) %>
 <% end %>
 
 <%= link_to "Create a new box", new_project_box_path %>
