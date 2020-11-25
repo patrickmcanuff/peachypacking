@@ -6,12 +6,12 @@ class BoxesController < ApplicationController
   def destroy
 
   end
-  
-  def new 
+
+  def new
 
   end
 
-  def create 
+  def create
 
   end
 
