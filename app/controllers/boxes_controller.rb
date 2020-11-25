@@ -10,6 +10,9 @@ class BoxesController < ApplicationController
   end
 
   def destroy
+    box = Box.find(params[:id])
+    box.destroy
+    redirect_to project_boxes_path(box.project)
   end
 
   def index
