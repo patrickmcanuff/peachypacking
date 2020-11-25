@@ -8,6 +8,16 @@ class BoxesController < ApplicationController
 
   end
 
+    def autocomplete
+    render json: Project.search(params[:query], {
+      fields: ["name"],
+      match: :word_start,
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:name)
+  end
+
   def index
     @boxes = Box.all
   end
