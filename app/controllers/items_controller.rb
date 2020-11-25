@@ -14,8 +14,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    project = params[:project_id]
-    @item.project_id = project
+    project = Project.find(params[:project_id])
+    @item.project = project
+    unless params[:item][:box_id].empty?
+      @item.box = Box.find(params[:item][:box_id])
+    end
     @item.save!
     # if @item.save
     #   redirect_to home_path(project)
@@ -25,6 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :comment)
+    params.require(:item).permit(:name, :comment, :box, :packing_date)
   end
 end
