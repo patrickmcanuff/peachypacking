@@ -1,7 +1,7 @@
 <%= simple_form_for([@project, @box]) do |f| %>
     <%= f.input :name %>
     <%= f.input :comment %>
-    <%= f.input :size %>
+    <%= f.input :size, collection: ["small", "medium", "large"] , as: :radio_buttons %>
     <%= f.input :packing_date, html5: true %>
     <%= f.submit class: 'btn btn-primary' %>
 <% end %>
