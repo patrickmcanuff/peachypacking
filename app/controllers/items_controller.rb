@@ -1,8 +1,19 @@
 class ItemsController < ApplicationController
   def edit
+    @item = Item.find(params[:id])
+    @box = Box.find_by(project_id: @item.project_id)
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to home_path
   end
 
   def destroy
+    item = item.find(params[:id])
+    item.destroy
+    redirect_to home_path
   end
 
   def new
@@ -17,18 +28,14 @@ class ItemsController < ApplicationController
     unless params[:item][:box_id].empty?
       @item.box = Box.find(params[:item][:box_id])
     end
-    @item.save!
-    # if @item.save
-    #   redirect_to home_path(project)
-    # else
-    #   render :new
-    # end
+    if @item.save
+      redirect_to home_path(project)
+    else
+      render :new
+    end
   end
 
   def item_params
     params.require(:item).permit(:name, :comment, :box, :packing_date)
-  end
-
-  def create
   end
 end

@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   get '/projects/:id/home', to: 'projects#home', as: :home
   get '/projects/:id/home/scan', to: 'projects#scan', as: :scan
 
-  resources :items, only: [:edit, :destroy] do
+  resources :items, only: [:edit, :update, :destroy] do
     resources :item_tags, only: [:new, :create]
   end
-  resources :boxes, only: [:edit, :destroy, :update] do
+  resources :boxes, only: [:edit, :update, :destroy] do
     resources :box_tags, only: [:new, :create]
   end
-  resources :tags, only: [:edit, :destroy,:new, :create]
+  resources :tags, only: [:edit, :destroy, :new, :create]
 
   resources :projects, only: [] do
     resources :items, only: [:new, :create]
