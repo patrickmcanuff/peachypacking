@@ -28,6 +28,6 @@ class BoxesController < ApplicationController
   end
 
   def box_params
-    params.require(:box).permit(:name, :comment, :size,)
+    params.require(:box).permit(:name, :comment, :size)
   end
 end

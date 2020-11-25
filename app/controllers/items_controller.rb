@@ -16,14 +16,15 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     project = params[:project_id]
     @item.project_id = project
-    if @item.save
-      redirect_to new_project_item_path(project)
-    else
-      render :new
-    end
+    @item.save!
+    # if @item.save
+    #   redirect_to home_path(project)
+    # else
+    #   render :new
+    # end
   end
 
   def item_params
-    params.require(:item).permit(:name, :comment, :box_id)
+    params.require(:item).permit(:name, :comment)
   end
 end
