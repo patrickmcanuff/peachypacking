@@ -1,4 +1,4 @@
-
+<h1>This is the search result</h1>
 <%= form_tag search_path, method: :get do %>
   <%= hidden_field :project,:id, value: params[:project][:id] %>
   <%= text_field_tag :query,
@@ -13,4 +13,3 @@
 <% #if boxes are available, render boxes orelse tell user no boxes found %>
 
 <% #if items are available, render items orelse tell user no items found %>
-<%= @box.name %>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get '/projects/search', to: 'projects#search', as: :search
   get '/projects/home', to: 'projects#home', as: :home
   get '/projects/home/scan', to: 'projects#scan', as: :scan
+  get '/projects', to: 'projects#index'
+  get '/projects/new', to: 'projects#new'
+
+
 
   resources :items, only: [:edit,:show,:destroy] do
     resources :item_tags, only: [:new, :create]
