@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :items, only: [:edit, :destroy] do
     resources :item_tags, only: [:new, :create]
   end
-  resources :boxes, only: [:edit, :destroy] do
+  resources :boxes, only: [:edit, :destroy, :update] do
     resources :box_tags, only: [:new, :create]
   end
   resources :tags, only: [:edit, :destroy,:new, :create]
