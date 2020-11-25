@@ -10,8 +10,6 @@ class ProjectsController < ApplicationController
   end
 
   def scan
-
-
   end
 
   def index
