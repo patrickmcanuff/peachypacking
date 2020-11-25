@@ -1,4 +1,5 @@
 class BoxesController < ApplicationController
+
   def edit
 
   end
@@ -30,4 +31,5 @@ class BoxesController < ApplicationController
   def box_params
     params.require(:box).permit(:name, :comment, :size,)
   end
+
 end
