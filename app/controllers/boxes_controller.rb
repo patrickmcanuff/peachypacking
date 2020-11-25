@@ -4,6 +4,7 @@ class BoxesController < ApplicationController
   end
 
   def update
+    # raise
     box = Box.find(params[:id])
     box.update(box_params)
     redirect_to project_boxes_path(box.project)
@@ -38,5 +39,4 @@ class BoxesController < ApplicationController
   def box_params
     params.require(:box).permit(:name, :comment, :size, :packing_date, :project_id)
   end
-
 end

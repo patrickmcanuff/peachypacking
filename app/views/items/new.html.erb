@@ -1,7 +1,8 @@
 <%= simple_form_for([@project, @item]) do |f| %>
     <%= f.input :name %>
     <%= f.input :comment %>
-    <%= f.input :box_id, collection: Box.where(project: @project ) %>
+    <%= f.input :box_id, collection:  Box.where(project: @project ) %> 
     <%= f.input :packing_date, html5: true %>
     <%= f.submit class: 'btn btn-primary' %>
 <% end %>
+<%# Box.where(project: @project ) %>
