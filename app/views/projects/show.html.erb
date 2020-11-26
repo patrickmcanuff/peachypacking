@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>This is the show</h1>
 
 <%= form_tag search_path, method: :get do %>
@@ -13,17 +15,42 @@
  <div class="container">
     <br>
     <p><strong>Name</strong><%= @project.name %></p>
+
+</div>
+
+
+<div class="container">
+<div class="cards">
+<% @project.boxes.each do |box| %>
+ <tr>
+   <td><strong>Box</strong>:<%= box.name %></td>
+   <br>
+   <td>Comment:<%= box.comment %></td>
+   <br>
+   <td>Size:<%= box.size %></td>
+   <br>
+    <td>Full?<%= box.full %></td>
     <br>
-    <p><strong>Box</strong><%= @box.name %>
+    <td>Packing date<%= box.packing_date %></td>
+</tr>
+</div>
+<% end%>
+<br>
+<p><strong>Items: </strong><% if @project.items.empty? %><%=@project.items.count %> </p>
+<% end%>
+<% @project.items.each do |item| %>
+ <tr>
+   <td><strong>item</strong>:<%= item.name %></td>
+   <br>
+   <td>Comment:<%= item.comment %></td>
     <br>
-     <p><strong>Item</strong> <%= @item.name %>
+    <td>Packing date<%= item.packing_date %></td>
+</tr>
+</div>
+<% end%>
+<br>
 
-    </div>
-
-
-<%= submit_tag "Add box", class: "btn btn-success" %>
-<%= submit_tag "Add item", class: "btn btn-success" %>
 <%= link_to 'Add box', new_project_box_path(@project.id) %>
 <%= link_to 'Add item', new_project_item_path(@project.id) %>
-
+</div>
 

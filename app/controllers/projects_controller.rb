@@ -10,8 +10,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-       @box = Box.where(user:current_user)
-    @item = Item.where(user:current_user)
+    @boxes = Box.where(user:current_user)
+    @items = Item.where(user:current_user)
     # render @boxes and @items if a user has searched
   end
 
@@ -20,7 +20,6 @@ class ProjectsController < ApplicationController
 
   def new
   end
-
 
   def create
     @project = Project.new(project_params)
@@ -36,7 +35,7 @@ class ProjectsController < ApplicationController
     Project.create(name: "Your first", user: current_user)
   end
 
-   def autocomplete
+  def autocomplete
     render json: Project.search(params[:query], {
       fields: ["name"],
       match: :word_start,
