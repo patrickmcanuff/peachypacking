@@ -18,6 +18,6 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:show] do
     resources :items, only: [:new, :create, :index]
-    resources :boxes, only: [:new, :create, :index]
+    resources :boxes, only: [:new, :create, :index, :show]
  end
 end
