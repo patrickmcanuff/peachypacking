@@ -15,6 +15,9 @@ class BoxesController < ApplicationController
     redirect_to project_boxes_path(box.project)
   end
 
+  def show
+    @box = Box.find(params[:id])
+  end
 
   def index
     @boxes = Box.all
@@ -27,9 +30,11 @@ class BoxesController < ApplicationController
 
   def create
     @box = Box.new(box_params)
-    project = params[:project_id]
-    @box.project_id = project
+    project = Project.find(params[:project_id])
+    @box.project = project
     if @box.save
+      @tag = Tag.find(params[:box][:tags])
+      boxtag = BoxTag.create(tag_id: @tag.id, box_id: @box.id)
       redirect_to project_boxes_path(project)
     else
       render :index
