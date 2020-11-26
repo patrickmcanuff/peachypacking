@@ -19,6 +19,10 @@ class BoxesController < ApplicationController
     @boxes = Box.where(project_id: params[:project_id])
   end
 
+  def show
+    @box = Box.find(params[:id])
+  end
+
   def new
     @project = Project.find(params[:project_id])
     @box = Box.new
