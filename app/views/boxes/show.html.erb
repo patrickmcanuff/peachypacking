@@ -3,4 +3,4 @@
 <%= @box.size %>
 <%= link_to "Edit this box", edit_box_path(@box.id) %>
 <%= link_to "Delete this box", box_path(@box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
-<%= link_to "Print QR/tags", project_qr_show_path(@box.project_id, @box.id) %>
+<%= link_to "Print QR/tags", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
