@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1>This is the show</h1>
+<h1>This is the project show</h1>
 
 <%= form_tag search_path, method: :get do %>
   <%= hidden_field :project,:id, value: @project.id %>
@@ -32,12 +32,14 @@
     <td>Full?<%= box.full %></td>
     <br>
     <td>Packing date<%= box.packing_date %></td>
+    <br>
 </tr>
-</div>
+<br>
 <% end%>
 <br>
 <p><strong>Items: </strong><% if @project.items.empty? %><%=@project.items.count %> </p>
 <% end%>
+<br>
 <% @project.items.each do |item| %>
  <tr>
    <td><strong>item</strong>:<%= item.name %></td>
@@ -46,11 +48,18 @@
     <br>
     <td>Packing date<%= item.packing_date %></td>
 </tr>
-</div>
+<br>
 <% end%>
+</div>
+</div>
+
 <br>
 
 <%= link_to 'Add box', new_project_box_path(@project.id) %>
 <%= link_to 'Add item', new_project_item_path(@project.id) %>
+
+<%= link_to 'Add Tags', new_project_item_path(@project.id) %>
+
 </div>
+
 

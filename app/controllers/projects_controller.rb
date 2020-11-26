@@ -12,7 +12,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @boxes = Box.where(user:current_user)
     @items = Item.where(user:current_user)
-    # render @boxes and @items if a user has searched
   end
 
   def scan
