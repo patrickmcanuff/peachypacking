@@ -67,3 +67,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'searchkick', '~> 4.0'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+  # add the line below
+  gem 'rails-assets-chosen'
+end

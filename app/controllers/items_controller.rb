@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @item = Item.new
+    @tag = Tag.all
   end
 
   def create
@@ -31,6 +32,8 @@ class ItemsController < ApplicationController
       @item.box = Box.find(params[:item][:box_id])
     end
     if @item.save
+     @tag = Tag.find(params[:item][:tags])
+      itemtag = ItemTag.create(tag_id: @tag.id, item_id: @item.id)
       redirect_to project_items_path(project)
     else
       render :new

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/projects', to: 'projects#index'
   get '/projects/new', to: 'projects#new'
   get '/projects/show', to: 'projects#new'
+  get 'tags/:tag', to: 'boxes#index', as: :tag
 
   resources :items, only: [:edit, :update, :destroy] do
     resources :item_tags, only: [:new, :create]
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :tags, only: [:edit, :destroy, :new, :create]
 
   resources :projects, only: [:show] do
+
     resources :items, only: [:new, :create, :index]
     resources :boxes, only: [:new, :create, :index, :show]
     get '/boxes/:id/qr_show', to: 'boxes#qr_show', as: :qr_show
