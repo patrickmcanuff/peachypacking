@@ -1,1 +1,29 @@
 <h1>This is the show</h1>
+
+<%= form_tag search_path, method: :get do %>
+  <%= hidden_field :project,:id, value: @project.id %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    value: "Search your projects"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary"%>
+<% end %>
+
+ <div class="container">
+    <br>
+    <p><strong>Name</strong><%= @project.name %></p>
+    <br>
+    <p><strong>Box</strong><%= @box.name %>
+    <br>
+     <p><strong>Item</strong> <%= @item.name %>
+
+    </div>
+
+
+<%= submit_tag "Add box", class: "btn btn-success" %>
+<%= submit_tag "Add item", class: "btn btn-success" %>
+<%= link_to 'Add box', new_project_box_path(@project.id) %>
+<%= link_to 'Add item', new_project_item_path(@project.id) %>
+
+

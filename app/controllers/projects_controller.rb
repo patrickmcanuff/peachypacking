@@ -6,7 +6,11 @@ class ProjectsController < ApplicationController
     else
       @project = current_user.projects.last
     end
-    @box = Box.where(user:current_user)
+  end
+
+  def show
+    @project = Project.find(params[:id])
+       @box = Box.where(user:current_user)
     @item = Item.where(user:current_user)
     # render @boxes and @items if a user has searched
   end
@@ -29,7 +33,7 @@ class ProjectsController < ApplicationController
   end
 
   def create_first_project
-    Project.create(name: "Your first project", user: current_user)
+    Project.create(name: "Your first", user: current_user)
   end
 
    def autocomplete
@@ -47,6 +51,12 @@ class ProjectsController < ApplicationController
     @boxes = Box.search(params[:query], where: {project_id: params[:project][:id]})
     # write a search for items and store in instance variable
     @items = Item.search(params[:query], where: {project_id: params[:project][:id]})
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:name)
   end
 end
 
