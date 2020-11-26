@@ -8,16 +8,13 @@ Rails.application.routes.draw do
   get '/projects/new', to: 'projects#new'
   get '/projects/show', to: 'projects#new'
 
-
-
-
-  resources :items, only: [:edit,:show,:destroy] do
+  resources :items, only: [:edit, :update, :destroy] do
     resources :item_tags, only: [:new, :create]
   end
-  resources :boxes, only: [:edit, :destroy] do
+  resources :boxes, only: [:edit, :update, :destroy] do
     resources :box_tags, only: [:new, :create]
   end
-  resources :tags, only: [:edit, :destroy,:new, :create]
+  resources :tags, only: [:edit, :destroy, :new, :create]
 
   resources :projects, only: [:show] do
     resources :items, only: [:new, :create]

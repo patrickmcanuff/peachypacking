@@ -1,11 +1,18 @@
 class BoxesController < ApplicationController
-
   def edit
+    @box = Box.find(params[:id])
+  end
 
+  def update
+    box = Box.find(params[:id])
+    box.update(box_params)
+    redirect_to project_boxes_path(box.project)
   end
 
   def destroy
-
+    box = Box.find(params[:id])
+    box.destroy
+    redirect_to project_boxes_path(box.project)
   end
 
 
@@ -30,7 +37,6 @@ class BoxesController < ApplicationController
   end
 
   def box_params
-    params.require(:box).permit(:name, :comment, :size,)
+    params.require(:box).permit(:name, :comment, :size, :packing_date, :project_id)
   end
-
 end
