@@ -15,9 +15,8 @@ class BoxesController < ApplicationController
     redirect_to project_boxes_path(box.project)
   end
 
-
   def index
-    @boxes = Box.all
+    @boxes = Box.where(project_id: params[:project_id])
   end
 
   def new
