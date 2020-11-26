@@ -1,6 +1,6 @@
 <%= @box.name %>
 <%= @box.comment %>
 <%= @box.size %>
-<%= @qr_code_render %>
 <%= link_to "Edit this box", edit_box_path(@box.id) %>
 <%= link_to "Delete this box", box_path(@box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
+<%= link_to "Print QR/tags", project_qr_show_path(@box.project_id, @box.id) %>
