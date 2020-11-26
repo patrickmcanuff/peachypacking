@@ -1,6 +1,13 @@
-  <%= submit_tag "Search", class: "btn btn-success" %>
 
-
+<%= form_tag search_path, method: :get do %>
+  <%= hidden_field :project,:id, value: @project.id %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    value: "Search your projects"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary"%>
+<% end %>
 
  <div class="container">
     <br>
@@ -13,7 +20,18 @@
     </div>
 
 
+<%= @project.id %>
+<%= submit_tag "Add box", class: "btn btn-success" %>
+<%= submit_tag "Add item", class: "btn btn-success" %>
+<%= link_to 'submit', "new_project_box_path(@project.id)", :onclick => "$('#form_id').submit()" %>
 
-  <%= submit_tag "Add box", class: "btn btn-success" %>
-    <%= submit_tag "Add item", class: "btn btn-success" %>
+
+
+
+
+
+
+
+
+
 

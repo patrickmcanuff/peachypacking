@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get '/projects/:id/search', to: 'projects#search', as: :search
-  get '/projects/:id/home', to: 'projects#home', as: :home
-  get '/projects/:id/home/scan', to: 'projects#scan', as: :scan
+  get '/projects/search', to: 'projects#search', as: :search
+  get '/projects/home', to: 'projects#home', as: :home
+  get '/projects/home/scan', to: 'projects#scan', as: :scan
+  get '/projects', to: 'projects#index'
+  get '/projects/new', to: 'projects#new'
+  get '/projects/show', to: 'projects#new'
 
   resources :items, only: [:edit, :update, :destroy] do
     resources :item_tags, only: [:new, :create]
@@ -13,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :tags, only: [:edit, :destroy, :new, :create]
 
-  resources :projects, only: [] do
+  resources :projects, only: [:show] do
     resources :items, only: [:new, :create]
     resources :boxes, only: [:new, :create, :index]
  end

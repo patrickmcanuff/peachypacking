@@ -1,21 +1,25 @@
 class ProjectsController < ApplicationController
-  def home
+
+  def index
     if current_user.projects.empty?
       @project = create_first_project
     else
       @project = current_user.projects.last
     end
-    @box = Box.where(user:current_user)
-    @item = Item.where(user:current_user)
+  end
+
+  def show
+    @project = Project.find(params[:id])
+    @boxes = Box.where(user:current_user)
+    @items = Item.where(user:current_user)
+    # render @boxes and @items if a user has searched
   end
 
   def scan
   end
 
-  def index
-    @projects = current_user.projects
+  def new
   end
-
 
   def create
     @project = Project.new(project_params)
@@ -28,8 +32,30 @@ class ProjectsController < ApplicationController
   end
 
   def create_first_project
-    Project.create(name: "First project created", user: current_user)
+    Project.create(name: "Your first", user: current_user)
   end
 
+  def autocomplete
+    render json: Project.search(params[:query], {
+      fields: ["name"],
+      match: :word_start,
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:name)
+  end
+
+  def search
+    # write a search for boxes and store in instance variable
+    @boxes = Box.search(params[:query], where: {project_id: params[:project][:id]})
+    # write a search for items and store in instance variable
+    @items = Item.search(params[:query], where: {project_id: params[:project][:id]})
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:name)
+  end
 end
 
