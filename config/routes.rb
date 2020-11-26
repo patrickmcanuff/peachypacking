@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :tags, only: [:edit, :destroy, :new, :create]
 
   resources :projects, only: [:show] do
-    resources :items, only: [:new, :create]
+
+    resources :items, only: [:new, :create, :index]
     resources :boxes, only: [:new, :create, :index, :show]
  end
 end

@@ -29,6 +29,7 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem 'rqrcode'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
@@ -68,4 +69,3 @@ source 'https://rails-assets.org' do
   # add the line below
   gem 'rails-assets-chosen'
 end
-

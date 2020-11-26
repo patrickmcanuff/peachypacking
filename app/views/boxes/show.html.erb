@@ -1,13 +1,7 @@
- <div class="container">
-    <br>
-    <td><strong>Box</strong>:<%= @box.name %></td>
-   <br>
-   <td>Comment:<%= @box.comment %></td>
-   <br>
-   <td>Size:<%= @box.size %></td>
-   <br>
-    <td>Full?<%= @box.full %></td>
-    <br>
-    <td>Packing date<%= @box.packing_date %></td>
-    <td>Tag<%= @box.tags.first.name %></td>
-</div>
+<%= @box.name %>
+<%= @box.comment %>
+<%= @box.size %>
+<%= @qr_code_render %>
+<%= link_to "Edit this box", edit_box_path(@box.id) %>
+<%= link_to "Delete this box", box_path(@box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
+

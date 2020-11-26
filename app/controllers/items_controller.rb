@@ -6,14 +6,16 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
+    project_id = item.project
     item.update(item_params)
-    redirect_to home_path
+    redirect_to project_items_path(project_id)
   end
 
   def destroy
-    item = item.find(params[:id])
+    item = Item.find(params[:id])
+    project_id = item.project
     item.destroy
-    redirect_to home_path
+    redirect_to project_items_path(project_id)
   end
 
   def new
@@ -36,6 +38,10 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def index
+    @items = Item.where(project_id: params[:project_id], box_id: nil)
   end
 
   def item_params
