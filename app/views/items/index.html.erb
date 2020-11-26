@@ -1,0 +1,7 @@
+<% @items.each do |item| %>
+  <%= item.name %>
+  <%= link_to "Edit this item", edit_item_path(item.id) %>
+  <%= link_to "Delete this item", item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
+<% end %>
+
+<%= link_to "Create a new item", new_project_item_path %>
