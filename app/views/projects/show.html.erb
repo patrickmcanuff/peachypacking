@@ -23,6 +23,8 @@
 
 <div class="container">
 <div class="cards">
+<p><strong>Boxes: </strong><% if @project.boxes.empty? %><%=@project.boxes.count %> </p>
+<% end%>
 <% @project.boxes.each do |box| %>
  <tr>
    <td><strong>Box</strong>:<%= box.name %></td>

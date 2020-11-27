@@ -1,4 +1,7 @@
 <div class ="container">
+  <% if @boxes.empty? %>
+    <p>You have no boxes.</p>
+  <% end %>
 <% @boxes.each do |box| %>
   <%= box.name %>
   <%= link_to 'Show box', project_box_path(box.project_id, box.id) %>
