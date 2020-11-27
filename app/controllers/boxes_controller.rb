@@ -23,7 +23,6 @@ class BoxesController < ApplicationController
   def show
     @box = Box.find(params[:id])
     @project = @box.project
-    @qr_code_render = qr_render.html_safe
   end
 
   def new
@@ -44,6 +43,10 @@ class BoxesController < ApplicationController
     else
       render :index
     end
+  end
+
+  def qr_show
+    @qr_code_render = qr_render.html_safe
   end
 
   def qr_render

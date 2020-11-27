@@ -31,6 +31,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'rqrcode'
 
+# html to PDF generator
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
@@ -63,3 +67,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'searchkick', '~> 4.0'
+
