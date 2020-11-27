@@ -1,6 +1,19 @@
+<div class = "container">
 <%= @box.name %>
+<br>
 <%= @box.comment %>
+<br>
 <%= @box.size %>
+<br>
+<p>This box contains: </p>
+<% @box.items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>
 <%= link_to "Edit this box", edit_box_path(@box.id) %>
+<br>
 <%= link_to "Delete this box", box_path(@box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
 <%= link_to "Print QR/tags", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
+</div>
+
+
