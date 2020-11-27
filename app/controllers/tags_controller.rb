@@ -24,7 +24,6 @@ class TagsController < ApplicationController
       render :new
     end
   end
-  end
 
   def add_tag_to_item
 
