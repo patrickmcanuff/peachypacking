@@ -5,7 +5,7 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    value: "Search your projects"
+    value: ""
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
@@ -21,13 +21,13 @@
  <tr>
    <td><strong>Box</strong>:<%= box.name %></td>
    <br>
-   <td>Comment:<%= box.comment %></td>
+   <td>Comment: <%= box.comment %></td>
    <br>
-   <td>Size:<%= box.size %></td>
+   <td>Size: <%= box.size %></td>
    <br>
-    <td>Full?<%= box.full %></td>
-    <br>
-    <td>Packing date<%= box.packing_date %></td>
+   <!--  <td>Full?<%= box.full %></td>
+    <br> -->
+    <td>Packing date: <%= box.packing_date %></td>
 </tr>
 </div>
 <% end%>

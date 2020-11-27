@@ -10,10 +10,14 @@
     <li><%= item.name %></li>
   <% end %>
 </ul>
+<%= link_to "Add an item", new_project_item_path %>
+<br>
 <%= link_to "Edit this box", edit_box_path(@box.id) %>
 <br>
 <%= link_to "Delete this box", box_path(@box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
+<br>
 <%= link_to "Print QR/tags", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
+<br>
+<br>
+<%= link_to "Back", project_boxes_path %>
 </div>
-
-

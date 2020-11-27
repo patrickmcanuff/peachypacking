@@ -2,14 +2,20 @@
 <% @items.each do |item| %>
 <br>
   <%= item.name %>
+  <br>
   <%= item.comment %>
+  <br>
   <%= item.packing_date %>
+  <br>
 
 
   <%= link_to "Edit this item", edit_item_path(item.id) %>
+  <br>
   <%= link_to "Delete this item", item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
 <% end %>
-
+<br>
 <%= link_to "Create a new item", new_project_item_path %>
-
+<br>
+<br>
+<%= link_to "Back", project_path(params[:project_id]) %>
 </div>
