@@ -9,15 +9,17 @@
     class: "form-control",
     value: "Search your projects"
   %>
+  <br>
   <%= submit_tag "Search", class: "btn btn-primary"%>
 <% end %>
 
  <div class="container">
     <br>
     <p><strong>Name</strong><%= @project.name %></p>
-
 </div>
 
+<%= link_to 'See all boxes', project_boxes_path(@project.id) %>
+<%= link_to 'See all items', project_items_path(@project.id) %>
 
 <div class="container">
 <div class="cards">
@@ -47,6 +49,7 @@
    <td>Comment:<%= item.comment %></td>
     <br>
     <td>Packing date<%= item.packing_date %></td>
+    <br>
 </tr>
 <br>
 <% end%>
@@ -58,7 +61,6 @@
 <%= link_to 'Add box', new_project_box_path(@project.id) %>
 <%= link_to 'Add item', new_project_item_path(@project.id) %>
 
-<%= link_to 'Add Tags', new_project_item_path(@project.id) %>
 
 </div>
 

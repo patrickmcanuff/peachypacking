@@ -1,7 +1,15 @@
+<div class="container">
 <% @items.each do |item| %>
+<br>
   <%= item.name %>
+  <%= item.comment %>
+  <%= item.packing_date %>
+
+
   <%= link_to "Edit this item", edit_item_path(item.id) %>
   <%= link_to "Delete this item", item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
 <% end %>
 
 <%= link_to "Create a new item", new_project_item_path %>
+
+</div>

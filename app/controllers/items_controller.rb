@@ -32,11 +32,25 @@ class ItemsController < ApplicationController
       @item.box = Box.find(params[:item][:box_id])
     end
     if @item.save
-     @tag = Tag.find(params[:item][:tags])
-      itemtag = ItemTag.create(tag_id: @tag.id, item_id: @item.id)
+     # @tag = Tag.find(params[:item][:tags])
+     #  itemtag = ItemTag.create(tag_id: @tag.id, item_id: @item.id)
       redirect_to project_items_path(project)
     else
       render :new
+    end
+  end
+
+  def add_items_to_box
+    @box = Box.find(params[:box_id])
+    @item = Item.new(item_params)
+    @item.box = @box # this will set the `box_id` field automatically
+
+    if @item.save
+      # only redirect to the box show page IF the item was saved successfully
+      redirect_to box_path(@box)
+    else
+      # rerender the new page with validation errors
+      render "new"
     end
   end
 
