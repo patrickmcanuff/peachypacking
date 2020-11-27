@@ -4,8 +4,8 @@
   <% end %>
 <% @boxes.each do |box| %>
   <%= box.name %>
-  <%= link_to 'Show box', project_box_path(box.project_id, box.id) %>
-  <%= link_to "Edit this box", edit_box_path(box.id) %>
+  <%= link_to 'Show box', project_box_path(box.project_id, box.id) %> |
+  <%= link_to "Edit this box", edit_box_path(box.id) %> |
   <%= link_to "Delete this box", box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
   <br>
 <% end %>
