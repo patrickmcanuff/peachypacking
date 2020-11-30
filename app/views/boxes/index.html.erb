@@ -10,8 +10,11 @@
   <br>
 <% end %>
 <br>
-<%= link_to "Create a new box", new_project_box_path %>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
+  Add box
+</button>
 <br>
 <br>
 <%= link_to "Back", project_path(params[:project_id]) %>
 </div>
+<%= render "new" %>
