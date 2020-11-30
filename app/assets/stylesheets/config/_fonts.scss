@@ -1,9 +1,18 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// Fonts for body and headers
+$body-font: 'Montserrat', sans-serif;
+$headers-font: 'Gloria Hallelujah', cursive;
+$button-font: 'Gloria Hallelujah', cursive;
+$navbar-font: 'Roboto', sans-serif;
+
+// Fonts for body and headers (keeping this for now as insurance in case it is used somewhere and we need it back)
+//$body-font: "Work Sans", "Helvetica", "sans-serif";
+//$headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

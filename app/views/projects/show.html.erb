@@ -1,64 +1,53 @@
 <div class="container">
 
-<h1>Let's get organized!</h1>
+<h1>Ready To Get Organized & Packed?</h1>
+<br>
 
+<div class="container">
 <%= form_tag search_path, method: :get do %>
   <%= hidden_field :project,:id, value: @project.id %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    value: "Search your projects"
+    value: ""
   %>
-  <br>
   <%= submit_tag "Search", class: "btn btn-primary"%>
 <% end %>
+</div>
+<br>
 
- <div class="container">
-    <br>
-    <p><strong>Name</strong><%= @project.name %></p>
+
+  <div class="container" id="container">
+  <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766121/item_card_in_home_1_fge3pd.png"), project_items_path(@project.id)) %>
+</div>
+<br>
+  <div class="card-body">
+  ITEMS
 </div>
 
-<%= link_to 'See all boxes', project_boxes_path(@project.id) %>
-<%= link_to 'See all items', project_items_path(@project.id) %>
 
-<div class="container">
-<div class="cards">
-<p><strong>Boxes: </strong><% if @project.boxes.empty? %><%=@project.boxes.count %> </p>
-<% end%>
-<% @project.boxes.each do |box| %>
- <tr>
-   <td><strong>Box</strong>:<%= box.name %></td>
-   <br>
-   <td>Comment:<%= box.comment %></td>
-   <br>
-   <td>Size:<%= box.size %></td>
-   <br>
-<!--     <td>Full?<%= box.full %></td>
-    <br> -->
-    <td>Packing date<%= box.packing_date %></td>
-    <br>
-</tr>
-<br>
-<% end%>
-<br>
-<p><strong>Items: </strong><% if @project.items.empty? %><%=@project.items.count %> </p>
-<% end%>
-<br>
-<% @project.items.each do |item| %>
- <tr>
-   <td><strong>item</strong>:<%= item.name %></td>
-   <br>
-   <td>Comment:<%= item.comment %></td>
-    <br>
-    <td>Packing date<%= item.packing_date %></td>
-    <br>
-</tr>
-<br>
-<% end%>
-</div>
-</div>
 
 <br>
+<br>
+  <div class="container" id="boxes">
+    <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766460/box_card_in_home_xmcbkk.png"), project_boxes_path(@project.id)) %>
+
+</div>
+ <div class="card-body">
+  BOXES
+  <br>
+</div>
+
+
+  <div class="card-body">
+SCAN
+<div>
+  <img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606764048/qr-code_zqik6b.png" alt="QR" id="icon"></div>
+<%= link_to 'Scan your box', new_project_box_path(@project.id) %>
+</div>
+
+</div>
+
 
 <%= link_to 'Add box', new_project_box_path(@project.id) %>
 <%= link_to 'Add item', new_project_item_path(@project.id) %>

@@ -1,0 +1,26 @@
+<div class="modal fade" id="newItemModal" tabindex="-1" role="dialog" aria-labelledby="newItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newItemModalLabel">Create a new item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for([@project, @item]) do |f| %>
+              <%= f.input :name %>
+              <%= f.input :comment %>
+              <%= f.input :box_id, collection:  Box.where(project: @project ) %>
+              <%= f.input :packing_date, html5: true %>
+              <%= f.submit class: 'btn btn-primary' %>
+          <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
