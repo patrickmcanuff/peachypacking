@@ -1,17 +1,24 @@
 <div class ="container">
   <% if @boxes.empty? %>
     <p>You have no boxes.</p>
+  <% else %>
+    <h2 style=$headers-font;"color:$peachy-orange">Check out your boxes!</h2>
   <% end %>
-<% @boxes.each do |box| %>
-  <%= box.name %>
-  <%= link_to 'Show box', project_box_path(box.project_id, box.id) %> |
-  <%= link_to "Edit this box", edit_box_path(box.id) %> |
-  <%= link_to "Delete this box", box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
-  <br>
-<% end %>
+</div>
+
+<div class ="container">
+  <% @boxes.each do |box| %>
+    <div class="card">
+      <%= box.name %>
+      <%= link_to 'Show box', project_box_path(box.project_id, box.id) %>
+      <%= link_to "Edit this box", edit_box_path(box.id) %>
+      <%= link_to "Delete this box", box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
+    </div>
+  <% end %>
+</div>
+
 <br>
 <%= link_to "Create a new box", new_project_box_path %>
 <br>
 <br>
 <%= link_to "Back", project_path(params[:project_id]) %>
-</div>
