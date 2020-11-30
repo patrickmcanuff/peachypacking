@@ -34,7 +34,7 @@ class BoxesController < ApplicationController
     @boxes = Box.where(project_id: params[:project_id])
     @box = Box.new(box_params)
     @project = Project.find(params[:project_id])
-    @box.project_id = @project
+    @box.project = @project
     @box.qr_code = qr_render
     if @box.save
       # @tag = Tag.find(params[:box][:tags])
