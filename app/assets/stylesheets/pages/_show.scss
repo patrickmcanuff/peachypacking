@@ -1,0 +1,48 @@
+h1 {
+  color: #FF7A00;
+  font-family: Gloria Hallelujah;
+  text-align: center;
+}
+
+
+#container,  {
+    align-items: center;
+    width: 246px;
+    height: 141px;
+    display: flex;
+}
+
+#boxes {
+  width: 246px;
+  display: flex;
+}
+
+.card-body {
+  color:grey;
+  font-size: 29px;
+  text-align: center;
+}
+
+.btn btn-primary {
+  color:grey;
+  margin: 5px;
+  background: #FFFFFF;
+  border: 2px solid rgba(156, 146, 146, 0.2);
+  box-sizing: border-box;
+  border-radius: 28px;
+}
+
+.form-control {
+   border-radius: 50px;
+}
+
+.container {
+  align:center;
+  background-color:white;
+}
+
+#icon{
+    width: 60px;
+    height: 60px;
+
+}
