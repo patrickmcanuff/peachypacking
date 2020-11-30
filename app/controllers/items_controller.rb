@@ -60,6 +60,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.where(project_id: params[:project_id], box_id: nil)
+    @project = Project.find(params[:project_id])
+    @item = Item.new
   end
 
   def item_params

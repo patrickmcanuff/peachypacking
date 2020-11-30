@@ -18,6 +18,8 @@ class BoxesController < ApplicationController
 
   def index
     @boxes = Box.where(project_id: params[:project_id])
+    @project = Project.find(params[:project_id])
+    @box = Box.new
   end
 
   def show
