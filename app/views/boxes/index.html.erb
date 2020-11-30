@@ -10,15 +10,20 @@
   <% @boxes.each do |box| %>
     <div class="card">
       <%= box.name %>
-      <%= link_to 'Show box', project_box_path(box.project_id, box.id) %>
-      <%= link_to "Edit this box", edit_box_path(box.id) %>
-      <%= link_to "Delete this box", box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
+      <br>
+      <%= box.size %>
+      <br>
+      <p>Comments: <%= box.comment %></p>
+      <%= link_to 'Items', project_box_path(box.project_id, box.id) %>
+      <%= link_to "Edit", edit_box_path(box.id) %>
+      <%= link_to "Delete", box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
+
     </div>
   <% end %>
 </div>
 
 <br>
-<%= link_to "Create a new box", new_project_box_path %>
+<%= link_to "New box", new_project_box_path %>
 <br>
 <br>
 <%= link_to "Back", project_path(params[:project_id]) %>
