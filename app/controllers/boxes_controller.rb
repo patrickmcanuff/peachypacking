@@ -25,6 +25,7 @@ class BoxesController < ApplicationController
   def show
     @box = Box.find(params[:id])
     @project = @box.project
+    @item = Item.new
   end
 
   def new

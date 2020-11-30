@@ -8,7 +8,6 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="container"
           <%= simple_form_for([@project, @item]) do |f| %>
               <%= f.input :name %>
               <%= f.input :comment %>
@@ -16,11 +15,9 @@
               <%= f.input :packing_date, html5: true %>
               <%= f.submit class: 'btn btn-primary' %>
           <% end %>
-        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
