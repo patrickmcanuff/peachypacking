@@ -1,5 +1,5 @@
 class BoxesController < ApplicationController
-  # require 'rqrcode'
+  require 'rqrcode'
   def edit
     @box = Box.find(params[:id])
   end
@@ -31,14 +31,11 @@ class BoxesController < ApplicationController
   end
 
   def create
-    @boxes = Box.where(project_id: params[:project_id])
     @box = Box.new(box_params)
-    @project = Project.find(params[:project_id])
-    @box.project = @project
-    @box.qr_code = qr_render
+    @project = params[:project_id]
+    @box.project_id = @project
     if @box.save
-      # @tag = Tag.find(params[:box][:tags])
-      # boxtag = BoxTag.create(tag_id: @tag.id, box_id: @box.id)
+      @box.update(qr_code: qr_render)
       redirect_to project_boxes_path(@project)
     else
       render :index
@@ -46,11 +43,12 @@ class BoxesController < ApplicationController
   end
 
   def qr_show
-    @qr_code_render = qr_render.html_safe
+    @box = Box.find(params[:id])
+    @qr_code_render = @box.qr_code.html_safe
   end
 
   def qr_render
-    qr = RQRCode::QRCode.new("#{request.base_url}/projects/#{@project}/boxes/#{@box}")
+    qr = RQRCode::QRCode.new("#{request.base_url}/projects/#{@project}/boxes/#{@box.id}")
     svg_qr = qr.as_svg(
       offset: 0,
       color: '000',

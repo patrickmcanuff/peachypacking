@@ -34,7 +34,11 @@ class ItemsController < ApplicationController
     if @item.save
      # @tag = Tag.find(params[:item][:tags])
      #  itemtag = ItemTag.create(tag_id: @tag.id, item_id: @item.id)
-      redirect_to project_items_path(project)
+      if @item.box == nil
+        redirect_to project_items_path(project)
+      else
+        redirect_to project_box_path(project, @item.box)
+      end
     else
       render :new
     end

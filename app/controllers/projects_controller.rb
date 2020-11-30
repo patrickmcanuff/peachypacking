@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   end
 
   def create_first_project
-    Project.create(name: "Your first", user: current_user)
+    Project.create(name: "Project #1", user: current_user)
   end
 
   def autocomplete

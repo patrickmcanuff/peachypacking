@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/projects/home/scan', to: 'projects#scan', as: :scan
   get '/projects', to: 'projects#index'
   get '/projects/new', to: 'projects#new'
-  get '/projects/show', to: 'projects#new'
   get 'tags/:tag', to: 'boxes#index', as: :tag
 
   resources :items, only: [:edit, :update, :destroy] do
