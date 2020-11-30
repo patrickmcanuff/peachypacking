@@ -1,7 +1,25 @@
 <!--<%# if @boxes.empty? %> <p>You have no boxes.</p>  <%# end %>-->
-
 <div class = "container">
-<%= @box.name %>
+<h1><%= @box.name %></h1>
+
+<%= form_tag search_path, method: :get do %>
+  <%= hidden_field :project,:id, value: @project.id %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    value: ""
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary"%>
+<% end %>
+
+<br>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
+  Add item  <i class="fas fa-plus-circle"></i>
+</button>
+<%= link_to "Print QR/tags", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
+<br>
+
 <br>
 <%= @box.comment %>
 <br>
@@ -12,18 +30,15 @@
     <li><%= item.name %></li>
   <% end %>
 </ul>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
-  Add item
-</button>
+
 <br>
 <%= link_to "Edit this box", edit_box_path(@box.id) %>
 <br>
 <%= link_to "Delete this box", box_path(@box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
-<br>
-<%= link_to "Print QR/tags", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
 <br>
 <br>
 <%= link_to "Back", project_boxes_path %>
 </div>
 
 <%= render '/items/new' %>
+
