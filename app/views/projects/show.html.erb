@@ -16,42 +16,37 @@
 </div>
 <br>
 
-<div class="container">
+
   <div class="container" id="container">
-   <div><img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606752586/lamp_tclt3n.png" alt="Lamp" id="icon"></div>
-    <div><img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606753796/acoustic-guitar_mbrmam.png" alt="Guitar" id="icon"></div>
-   <div> <img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606753953/chair_x2ohpv.png" alt="Office chair" id="icon"></div>
+  <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766121/item_card_in_home_1_fge3pd.png"), project_items_path(@project.id)) %>
 </div>
 <br>
   <div class="card-body">
   ITEMS
-  <%= link_to 'See all items', project_items_path(@project.id) %>
 </div>
-</div>
+
+
 
 <br>
 <br>
-<div class="container">
   <div class="container" id="boxes">
-    <img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606755094/cardboard-box_egbrjq.png" alt="Boxes" id="boxes">
+    <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766460/box_card_in_home_xmcbkk.png"), project_boxes_path(@project.id)) %>
+
 </div>
-  <div class="card-body">
+ <div class="card-body">
   BOXES
-  <%= link_to 'See all boxes', project_boxes_path(@project.id) %>
-</div>
-</div>
+  <br>
 </div>
 
-<div class="card">
+
   <div class="card-body">
 SCAN
-<div><img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606764048/qr-code_zqik6b.png" alt="Lamp" id="icon"></div>
-
+<div>
+  <img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606764048/qr-code_zqik6b.png" alt="QR" id="icon"></div>
 <%= link_to 'Scan your box', new_project_box_path(@project.id) %>
 </div>
+
 </div>
-
-
 
 
 <%= link_to 'Add box', new_project_box_path(@project.id) %>
