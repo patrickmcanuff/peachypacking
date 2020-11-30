@@ -1,4 +1,18 @@
 <div class="container">
+<div class="text-center m-2 p-2 text-warning">
+  <h3>Let's get organized!</h3>
+</div>
+<%= form_tag search_path, method: :get do %>
+  <%= hidden_field :project,:id, value: @project.id %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    value: "Search your projects"
+  %>
+  <br>
+  <%= submit_tag "Search", class: "btn btn-primary"%>
+<% end %>
+
 <% @items.each do |item| %>
 <br>
   <%= item.name %>
