@@ -12,13 +12,16 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="container">
-    </div>
 
     <%= yield %>
-   <%= render 'shared/footer' %>
+
+
+    <% unless request.path == '/projects' %>
+      <%= render 'shared/footer-most-pages' %>
+    <% end %>
+
+
   </body>
 
 </html>
