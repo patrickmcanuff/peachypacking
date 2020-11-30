@@ -1,64 +1,58 @@
 <div class="container">
 
-<h1>Let's get organized!</h1>
+<h1>Ready To Get Organized & Packed?</h1>
+<br>
 
+<div class="container">
 <%= form_tag search_path, method: :get do %>
   <%= hidden_field :project,:id, value: @project.id %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    value: "Search your projects"
+    value: ""
   %>
-  <br>
   <%= submit_tag "Search", class: "btn btn-primary"%>
 <% end %>
-
- <div class="container">
-    <br>
-    <p><strong>Name</strong><%= @project.name %></p>
 </div>
-
-<%= link_to 'See all boxes', project_boxes_path(@project.id) %>
-<%= link_to 'See all items', project_items_path(@project.id) %>
+<br>
 
 <div class="container">
-<div class="cards">
-<p><strong>Boxes: </strong><% if @project.boxes.empty? %><%=@project.boxes.count %> </p>
-<% end%>
-<% @project.boxes.each do |box| %>
- <tr>
-   <td><strong>Box</strong>:<%= box.name %></td>
-   <br>
-   <td>Comment:<%= box.comment %></td>
-   <br>
-   <td>Size:<%= box.size %></td>
-   <br>
-<!--     <td>Full?<%= box.full %></td>
-    <br> -->
-    <td>Packing date<%= box.packing_date %></td>
-    <br>
-</tr>
+  <div class="container" id="container">
+   <div><img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606752586/lamp_tclt3n.png" alt="Lamp" id="icon"></div>
+    <div><img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606753796/acoustic-guitar_mbrmam.png" alt="Guitar" id="icon"></div>
+   <div> <img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606753953/chair_x2ohpv.png" alt="Office chair" id="icon"></div>
+</div>
 <br>
-<% end%>
-<br>
-<p><strong>Items: </strong><% if @project.items.empty? %><%=@project.items.count %> </p>
-<% end%>
-<br>
-<% @project.items.each do |item| %>
- <tr>
-   <td><strong>item</strong>:<%= item.name %></td>
-   <br>
-   <td>Comment:<%= item.comment %></td>
-    <br>
-    <td>Packing date<%= item.packing_date %></td>
-    <br>
-</tr>
-<br>
-<% end%>
+  <div class="card-body">
+  ITEMS
+  <%= link_to 'See all items', project_items_path(@project.id) %>
 </div>
 </div>
 
 <br>
+<br>
+<div class="container">
+  <div class="container" id="boxes">
+    <img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606755094/cardboard-box_egbrjq.png" alt="Boxes" id="boxes">
+</div>
+  <div class="card-body">
+  BOXES
+  <%= link_to 'See all boxes', project_boxes_path(@project.id) %>
+</div>
+</div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+SCAN
+<div><img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606764048/qr-code_zqik6b.png" alt="Lamp" id="icon"></div>
+
+<%= link_to 'Scan your box', new_project_box_path(@project.id) %>
+</div>
+</div>
+
+
+
 
 <%= link_to 'Add box', new_project_box_path(@project.id) %>
 <%= link_to 'Add item', new_project_item_path(@project.id) %>
