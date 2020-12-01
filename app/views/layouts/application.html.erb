@@ -18,11 +18,8 @@
 
     <%= render 'shared/sign-out-button' %>
 
-<<<<<<< HEAD
     <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || (controller_name == "boxes" && action_name == "edit") %>
-=======
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || request.path == '/users/sign_up'%>
->>>>>>> f202d3b133e729b06ce67309da090ac024d11d4b
+
       <%= render 'shared/footer-most-pages' %>
     <% end %>
 
