@@ -20,10 +20,14 @@
 
 
 <div class ="container">
+  <% if @items.empty? %>
+    <p> You have no item without a box</p>
+  <% end %>
+
   <% @items.each do |item| %>
     <div class="card-white">
       <div class="box-card-item">
-        <p><b>Box: </b><%= item.name %></p>
+        <p><b>Item: </b><%= item.name %></p>
       </div>
       <div class="box-card-item">
         <p><b>Comments: </b><%= item.comment %></p>
