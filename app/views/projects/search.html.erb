@@ -1,46 +1,42 @@
-<div class="container"
-<h1>This is the search result</h1>
-<%= form_tag search_path, method: :get do %>
-  <%= hidden_field :project,:id, value: params[:project][:id] %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    value: ""
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<div class="main-container">
+  <h1 class="py-4">Results</h1>
+  <%= form_tag search_path, method: :get do %>
+    <%= hidden_field :project,:id, value: params[:project][:id] %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control w-75 ml-2",
+      value: ""
+    %>
+    <%= submit_tag "Search", class: "search-btn btn btn-primary mt-2" %>
+  <% end %>
 
 
-<br>
-<% #if boxes are available, render boxes orelse tell user no boxes found %>
+  <br>
+  <!-- if boxes are available, render boxes orelse tell user no boxes found %> -->
 
-<% #if items are available, render items orelse tell user no items found %>
+  <!-- if items are available, render items orelse tell user no items found %> -->
 
-<div class="cards">
-<% @boxes.each do |box| %>
- <tr>
-   <td><strong>Box</strong>:<%= box.name %></td>
-   <br>
-   <td>Comment: <%= box.comment %></td>
-   <br>
-   <td>Size: <%= box.size %></td>
-   <br>
-   <!--  <td>Full?<%= box.full %></td>
-    <br> -->
-    <td>Packing date: <%= box.packing_date %></td>
-</tr>
-</div>
-<% end%>
+  <div class="cards-in-search">
+    <% @boxes.each do |box| %>
+      <td><strong>Box</strong>:<%= box.name %></td>
+      <br>
+      <td>Comment: <%= box.comment %></td>
+      <br>
+      <td>Size: <%= box.size %></td>
+      <br>
+      <!--  <td>Full?<%= box.full %></td>
+      <br> -->
+    <% end%>
 
 
-<% @items.each do |item| %>
- <tr>
-   <td><strong>item</strong>:<%= item.name %></td>
-   <br>
-   <td>Comment:<%= item.comment %></td>
+    <% @items.each do |item| %>
+       <td><strong>item</strong>:<%= item.name %></td>
+       <br>
+       <td>Comment:<%= item.comment %></td>
+       <br>
+       <td>Box:<%= item.box.name %></td>
+    <% end%>
     <br>
-    <td>Packing date<%= item.packing_date %></td>
-</tr>
+  </div>
 </div>
-<% end%>
-<br>
+
