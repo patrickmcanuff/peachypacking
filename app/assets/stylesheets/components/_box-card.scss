@@ -24,15 +24,10 @@
 
 .comment {
   position: absolute;
-  background-color: $peachy-orange;
+  background-color: $light-orange;
   border-radius: 10px;
 }
 
-//.card-item {
-//  position: absolute;
-//  flex-direction: column;
-//}
-//
-//.card-icon {
-//  position: absolute;
-//}
+.name {
+  font-weight: bolder;
+}

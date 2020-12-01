@@ -11,8 +11,9 @@
 <div class ="container">
   <% @boxes.each do |box| %>
     <div class="card-white">
-      <%= box.name %>
-      <br>
+      <div class="name">
+        <%= box.name %>
+      </div>
       <%= box.size.capitalize %>
       <br>
       <div class="comment">
