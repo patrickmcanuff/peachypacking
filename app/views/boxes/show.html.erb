@@ -1,6 +1,6 @@
 <!--<%# if @boxes.empty? %> <p>You have no boxes.</p>  <%# end %>-->
 <div class = "container">
-<h1><%= @box.name %></h1>
+
 
 <%= form_tag search_path, method: :get do %>
   <%= hidden_field :project,:id, value: @project.id %>
@@ -15,6 +15,7 @@
 <br>
 
 <div class="container">
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
   Add item  <i class="fas fa-plus-circle"></i>
 </button>
@@ -26,22 +27,42 @@
 
 
 <div class="card-white">
+  <h1><%= @box.name %></h1>
+  <br>
+<div class="box-card-item d-flex justify-content-around">
+<div><b>Size: </b><%= @box.size %></div>
+<div><b>Comment: </b><%= @box.comment %></div>
+
+</div>
 
 <br>
 <div class="box-card-item">
-<b>Comment: </b><%= @box.comment %>
-</div>
-<br>
-<div class="box-card-item">
-<b>Size: </b><%= @box.size %>
-</div>
-<br>
-<div class="box-card-item">
-<p><b>This box contains: </b> </p>
-<% @box.items.each do |item| %>
-<div class="box-card-item">
-    <%= item.name %>
+<div class ="container">
+  <% if @box.items.empty? %>
+    <p> You have no item without a box</p>
   <% end %>
+
+  <% @box.items.each do |item| %>
+    <div class="card-white">
+      <div class="box-card-item">
+        <p><b>Item: </b><%= item.name %></p>
+      </div>
+      <div class="box-card-item">
+        <p><b>Comments: </b><%= item.comment %></p>
+      </div>
+      <div class="edit">
+        <%= link_to edit_item_path(item.id) do %>
+          <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
+        <% end %>
+      </div>
+      <div class="delete">
+        <%= link_to item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+          <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 </div>
 </ul>
 <div class="edit">
