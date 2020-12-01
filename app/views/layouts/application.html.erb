@@ -18,7 +18,9 @@
 
     <%= render 'shared/sign-out-button' %>
 
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || (controller_name == "boxes" && action_name == "edit") %>
+
+    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' %>
+
 
       <%= render 'shared/footer-most-pages' %>
     <% end %>
