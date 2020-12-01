@@ -14,32 +14,53 @@
 
 <br>
 
+<div class="container">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
   Add item  <i class="fas fa-plus-circle"></i>
 </button>
 <button type="button" class="btn btn-primary" id="QR">
 <%= link_to "Print QR", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
 </button>
+</div>
 <br>
 
+
+<div class="card-white">
+
 <br>
-<%= @box.comment %>
+<div class="box-card-item">
+<b>Comment: </b><%= @box.comment %>
+</div>
 <br>
-<%= @box.size %>
+<div class="box-card-item">
+<b>Size: </b><%= @box.size %>
+</div>
 <br>
-<p>This box contains: </p>
+<div class="box-card-item">
+<p><b>This box contains: </b> </p>
 <% @box.items.each do |item| %>
-    <li><%= item.name %></li>
+<div class="box-card-item">
+    <%= item.name %>
   <% end %>
+</div>
 </ul>
+<div class="edit">
+        <%= link_to edit_box_path(@box) do %>
+          <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
+        <% end %>
+      </div>
+      <div class="delete">
+        <%= link_to box_path(@box), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+          <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
+        <% end %>
+      </div>
+</div>
+</div>
+
+
 
 <br>
-<%= link_to "Edit this box", edit_box_path(@box.id) %>
-<br>
-<%= link_to "Delete this box", box_path(@box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
-<br>
-<br>
-<%= link_to "Back", project_boxes_path %>
+
 </div>
 
 <%= render '/items/new' %>
