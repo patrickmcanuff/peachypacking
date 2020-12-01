@@ -22,8 +22,10 @@
   right: 32px;
 }
 
-.card-item {
-
+.comment {
+  position: absolute;
+  background-color: $peachy-orange;
+  border-radius: 10px;
 }
 
 //.card-item {
