@@ -12,7 +12,7 @@
   <%= submit_tag "Search", class: "btn btn-primary"%>
 <% end %>
 
-<div class="container">
+<div class="d-flex justify-content-around">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
   Add item  <i class="fas fa-plus-circle"></i>
 </button>
@@ -20,6 +20,7 @@
 <%= link_to "Print QR", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
 </button>
 </div>
+
 <div class="card-white">
   <h1><%= @box.name %></h1>
 <div class="box-card-item d-flex justify-content-around">
