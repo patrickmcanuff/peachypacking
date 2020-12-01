@@ -1,5 +1,5 @@
 .banner{
-  background-color: $orange;
+  background-color: $peachy-orange;
   height: 200px;
   position: relative;
   width: 100%;
@@ -10,15 +10,18 @@
 .banner h1{
   padding-top: 60px;
   padding-left: 30px;
+  font-size: 36px;
 }
 
 .project-card{
-  border: 0.5px solid $gray;
+  border: 0.5px solid $peachy-orange;
   text-align: center;
   margin: 0 auto;
-  width: 200px;
+  width: 360px;
   position: relative;
   bottom: 40px;
+  border-radius: 28px;
+  height: 100px;
 }
 
 .peach{
@@ -34,3 +37,9 @@
   padding-left: 0px;
 }
 
+.project-card h2{
+  font-family: $body-font;
+  color: $peachy-gray;
+  padding-top: 30px;
+  font-size: 24px;
+}
