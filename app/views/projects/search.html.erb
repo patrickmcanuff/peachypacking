@@ -7,7 +7,7 @@
       class: "form-control w-75 ml-2",
       value: ""
     %>
-    <%= submit_tag "Search", class: "search-btn btn btn-primary mt-2" %>
+    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
   <% end %>
 
 
@@ -15,6 +15,33 @@
   <!-- if boxes are available, render boxes orelse tell user no boxes found %> -->
 
   <!-- if items are available, render items orelse tell user no items found %> -->
+  <div class ="container">
+  <% @boxes.each do |box| %>
+    <%= link_to project_box_path(box.project_id, box.id) do %>
+      <div class="card-white">
+        <div class="box-card-item">
+          <p><b>Box: </b><%= box.name %></p>
+        </div>
+        <div class="box-card-item">
+          <p><b>Size: </b><%= box.size.capitalize %></p>
+        </div>
+        <div class="box-card-item">
+          <p><b>Comments: </b><%= box.comment %></p>
+        </div>
+        <div class="edit">
+          <%= link_to edit_box_path(box.id) do %>
+            <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
+          <% end %>
+        </div>
+        <div class="delete">
+          <%= link_to box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+            <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
   <div class="cards-in-search">
     <% @boxes.each do |box| %>
