@@ -12,13 +12,19 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="container">
-    </div>
 
     <%= yield %>
-   <%= render 'shared/footer' %>
+
+    <%= render 'shared/sign-out-button' %>
+
+    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' %>
+
+      <%= render 'shared/footer-most-pages' %>
+    <% end %>
+
+
+
   </body>
 
 </html>

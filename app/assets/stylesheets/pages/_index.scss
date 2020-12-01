@@ -1,6 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "box-index";
+@import "global";
 @import "show";
+
 
 .btn-primary {
   border-color: white;
@@ -56,3 +59,4 @@ a:active {
   color:black;
   text-decoration:none;
 }
+

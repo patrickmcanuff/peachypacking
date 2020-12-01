@@ -1,0 +1,14 @@
+<div class="footer d-flex justify-content-between text-decoration-none">
+  <% if controller_name == 'projects' && action_name == 'show' %>
+    <a href='<%= projects_path %>'>Back</a>
+  <% elsif  controller_name == 'items' && action_name == 'index' %>
+    <a href='<%= project_path(params[:project_id]) %>'>Back</a>
+  <% elsif  controller_name == 'boxes' && action_name == 'index' %>
+    <a href='<%= project_path(params[:project_id]) %>'>Back</a>
+  <% elsif  controller_name == 'boxes' && action_name == 'show' %>
+    <a href='<%= project_boxes_path(params[:project_id]) %>'>Back</a>
+  <% elsif  controller_name == 'projects' && action_name == 'search' %>
+    <a href='<%= project_path(current_user.projects.last) %>'>Back</a>
+  <% end %>
+  <%= link_to 'Home', project_path(current_user.projects.last) %>
+</div>
