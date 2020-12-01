@@ -1,7 +1,7 @@
-<!--<%# if @boxes.empty? %> <p>You have no boxes.</p>  <%# end %>-->
+<!--<%# if @boxes.empty? %>
+<p>You have no boxes.</p>
+ <%# end %>-->
 <div class = "container">
-
-
 <%= form_tag search_path, method: :get do %>
   <%= hidden_field :project,:id, value: @project.id %>
   <%= text_field_tag :query,
@@ -12,10 +12,7 @@
   <%= submit_tag "Search", class: "btn btn-primary"%>
 <% end %>
 
-<br>
-
-<div class="container">
-
+<div class="d-flex justify-content-around">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
   Add item  <i class="fas fa-plus-circle" style="color:#FF7A00"></i>
 </button>
@@ -23,25 +20,18 @@
 <%= link_to "Print QR", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
 </button>
 </div>
-<br>
-
 
 <div class="card-white">
   <h1><%= @box.name %></h1>
-  <br>
 <div class="box-card-item d-flex justify-content-around">
 <div><b>Size: </b><%= @box.size %></div>
 <div><b>Comment: </b><%= @box.comment %></div>
-
 </div>
-
-<br>
 <div class="box-card-item">
 <div class ="container">
   <% if @box.items.empty? %>
     <p> You have no item without a box</p>
   <% end %>
-
   <% @box.items.each do |item| %>
     <div class="card-white">
       <div class="box-card-item">
@@ -77,12 +67,7 @@
       </div>
 </div>
 </div>
-
-
-
 <br>
-
 </div>
-
 <%= render '/items/new' %>
 
