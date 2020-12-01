@@ -17,7 +17,7 @@
     <%= yield %>
 
 
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' %>
+    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || (controller_name == "boxes" && action_name == "edit") %>
       <%= render 'shared/footer-most-pages' %>
     <% end %>
 
