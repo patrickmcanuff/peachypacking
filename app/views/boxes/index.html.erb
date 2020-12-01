@@ -1,3 +1,24 @@
+<div class="container">
+
+<h1>Your boxes</h1>
+
+<%= form_tag search_path, method: :get do %>
+  <%= hidden_field :project,:id, value: @project.id %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    value: ""
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary"%>
+<% end %>
+<br>
+
+<h1><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
+  Add box <i class="fas fa-plus-circle"></i>
+</button></h1>
+
+
+
 <div class ="container">
   <% if @boxes.empty? %>
     <p>You have no boxes.</p>
@@ -36,6 +57,7 @@
     </div>
   <% end %>
 </div>
+
 <br>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
@@ -46,3 +68,4 @@
 <%= link_to "Back", project_path(params[:project_id]) %>
 </div>
 <%= render "new" %>
+</div>
