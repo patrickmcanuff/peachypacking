@@ -7,6 +7,8 @@
     <a href='<%= project_path(params[:project_id]) %>'>Back</a>
   <% elsif  controller_name == 'boxes' && action_name == 'show' %>
     <a href='<%= project_boxes_path(params[:project_id]) %>'>Back</a>
+  <% elsif  controller_name == 'projects' && action_name == 'search' %>
+    <a href='<%= project_path(params[:project_id]) %>'>Back</a>
   <% end %>
   <%= link_to 'Home', project_path(@project) %>
 </div>
