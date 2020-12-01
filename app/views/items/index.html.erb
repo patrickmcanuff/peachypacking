@@ -1,15 +1,14 @@
 <div class="container">
   <div class="text-center m-2 p-2 text-warning">
-    <h3>Your items</h3>
+    <h3>Your unassigned items</h3>
   </div>
   <%= form_tag search_path, method: :get do %>
     <%= hidden_field :project,:id, value: @project.id %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control w-75",
+      class: "form-control",
       value: ""
     %>
-
     <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
   <% end %>
   <h1><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
