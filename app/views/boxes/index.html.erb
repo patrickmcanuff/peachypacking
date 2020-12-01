@@ -18,13 +18,17 @@
 
 
 
-
+<div class ="container">
   <% if @boxes.empty? %>
     <p>You have no boxes.</p>
   <% else %>
+    <div>
+      <h2 class="title">Your boxes</h2>
+    </div>
   <% end %>
+</div>
 
-
+<div class ="container">
   <% @boxes.each do |box| %>
     <%= link_to project_box_path(box.project_id, box.id) do %>
       <div class="card-white">
@@ -50,6 +54,7 @@
       </div>
     <% end %>
   <% end %>
+</div>
 
 <br>
 
