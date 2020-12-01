@@ -8,7 +8,11 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     project_id = item.project
     item.update(item_params)
-    redirect_to project_items_path(project_id)
+    if item.box == nil
+      redirect_to project_items_path(item.project.id)
+    else
+    redirect_to project_box_path(item.project.id, item.box.id)
+    end
   end
 
   def destroy
