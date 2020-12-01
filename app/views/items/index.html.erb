@@ -30,10 +30,6 @@
     <br>
     <%= link_to "Delete this item", item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
   <% end %>
-  <br>
-  <br>
-  <br>
-  <%= link_to "Back", project_path(params[:project_id]) %>
 </div>
 
 <%= render "new" %>
