@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1>Ready To Get Organized & Packed?</h1>
+<h1 class='mt-5'>Ready to get organized?</h1>
 <br>
 
 <div class="container">
@@ -11,34 +11,28 @@
     class: "form-control",
     value: ""
   %>
-  <%= submit_tag "Search", class: "btn btn-primary"%>
+  <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
 <% end %>
 </div>
 <br>
 
+ <div class="card-body">
+  BOXES
+  <br>
+  <div class="container" id="boxes">
+    <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766460/box_card_in_home_xmcbkk.png"), project_boxes_path(@project.id)) %>
+  </div>
+</div>
 
+<div class="card-body">
+  ITEMS
+</div>
   <div class="container" id="container">
   <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766121/item_card_in_home_1_fge3pd.png"), project_items_path(@project.id)) %>
 </div>
 <br>
-  <div class="card-body">
-  ITEMS
-</div>
-
-
-
 <br>
 <br>
-  <div class="container" id="boxes">
-    <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766460/box_card_in_home_xmcbkk.png"), project_boxes_path(@project.id)) %>
-
-</div>
- <div class="card-body">
-  BOXES
-  <br>
-</div>
-
-
   <div class="card-body">
 SCAN
 <div>
