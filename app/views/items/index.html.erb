@@ -6,14 +6,12 @@
     <%= hidden_field :project,:id, value: @project.id %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control w-75",
       value: ""
     %>
-    <br>
-    <%= submit_tag "Search", class: "btn btn-primary"%>
-  <br>
+
+    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %> 
   <% end %>
-  <br>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
     Add item
   </button>
