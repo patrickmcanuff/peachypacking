@@ -16,10 +16,12 @@
 
     <%= yield %>
 
+    <%= render 'shared/sign-out-button' %>
 
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' %>
+    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || request.path == '/users/sign_up'%>
       <%= render 'shared/footer-most-pages' %>
     <% end %>
+
 
 
   </body>
