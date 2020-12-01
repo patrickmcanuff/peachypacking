@@ -1,0 +1,33 @@
+.card-white {
+  background: $white;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  //display: flex;
+}
+
+.delete {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.edit {
+  position: absolute;
+  top: 8px;
+  right: 32px;
+}
+
+.comment {
+  position: absolute;
+  background-color: $light-orange;
+  border-radius: 10px;
+}
+
+.name {
+  font-weight: bolder;
+}
