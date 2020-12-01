@@ -1,0 +1,36 @@
+.card-white {
+  background: $white;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  //display: flex;
+}
+
+.trash {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.edit {
+  position: absolute;
+  top: 8px;
+  right: 32px;
+}
+
+.card-item {
+
+}
+
+//.card-item {
+//  position: absolute;
+//  flex-direction: column;
+//}
+//
+//.card-icon {
+//  position: absolute;
+//}

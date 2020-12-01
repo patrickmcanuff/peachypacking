@@ -2,26 +2,39 @@
   <% if @boxes.empty? %>
     <p>You have no boxes.</p>
   <% else %>
-    <h2 style=$headers-font;"color:$peachy-orange">Check out your boxes!</h2>
+    <div>
+      <h2 class="title">Your boxes</h2>
+    </div>
   <% end %>
 </div>
 
 <div class ="container">
   <% @boxes.each do |box| %>
-    <div class="card">
+    <div class="card-white">
       <%= box.name %>
       <br>
-      <%= box.size %>
+      <%= box.size.capitalize %>
       <br>
-      <p>Comments: <%= box.comment %></p>
-      <%= link_to 'Items', project_box_path(box.project_id, box.id) %>
-      <%= link_to "Edit", edit_box_path(box.id) %>
-      <%= link_to "Delete", box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
-
+      <div class="comment">
+        <%= box.comment %>
+      </div>
+      <br>
+      <div class="item">
+        <%= link_to 'Items', project_box_path(box.project_id, box.id) %>
+      </div>
+      <div class="edit">
+        <%= link_to edit_box_path(box.id) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <div class="trash">
+        <%= link_to box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
-
 <br>
 <%= link_to "New box", new_project_box_path %>
 <br>
