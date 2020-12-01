@@ -1,15 +1,43 @@
 <div class ="container">
   <% if @boxes.empty? %>
     <p>You have no boxes.</p>
+  <% else %>
+    <div>
+      <h2 class="title">Your boxes</h2>
+    </div>
   <% end %>
-<% @boxes.each do |box| %>
-  <%= box.name %>
-  <%= link_to 'Show box', project_box_path(box.project_id, box.id) %> |
-  <%= link_to "Edit this box", edit_box_path(box.id) %> |
-  <%= link_to "Delete this box", box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
-  <br>
-<% end %>
+</div>
+
+<div class ="container">
+  <% @boxes.each do |box| %>
+    <div class="card-white">
+      <div class="name">
+        <%= box.name %>
+      </div>
+      <%= box.size.capitalize %>
+      <br>
+      <div class="comment">
+        <%= box.comment %>
+      </div>
+      <br>
+      <div class="item">
+        <%= link_to 'Items', project_box_path(box.project_id, box.id) %>
+      </div>
+      <div class="edit">
+        <%= link_to edit_box_path(box.id) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <div class="delete">
+        <%= link_to box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+          <i class="fas fa-minus-circle"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 <br>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
   Add box
 </button>
