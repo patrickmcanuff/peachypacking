@@ -4,10 +4,10 @@
     <%= hidden_field :project,:id, value: params[:project][:id] %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control w-75 ml-2",
+      class: "form-control w-75 ml-4",
       value: ""
     %>
-    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
+    <%= image_submit_tag("search.png", class: 'search_button ml-2', alt: 'Find') %>
   <% end %>
 
 
@@ -43,27 +43,29 @@
   <% end %>
 </div>
 
-  <div class="cards-in-search">
-    <% @boxes.each do |box| %>
-      <td><strong>Box</strong>:<%= box.name %></td>
-      <br>
-      <td>Comment: <%= box.comment %></td>
-      <br>
-      <td>Size: <%= box.size %></td>
-      <br>
-      <!--  <td>Full?<%= box.full %></td>
-      <br> -->
-    <% end%>
-
-
-    <% @items.each do |item| %>
-       <td><strong>item</strong>:<%= item.name %></td>
-       <br>
-       <td>Comment:<%= item.comment %></td>
-       <br>
-       <td>Box:<%= item.box.name %></td>
-    <% end%>
-    <br>
-  </div>
+<div class ="container">
+  <% @items.each do |item| %>
+    <div class="card-white">
+      <div class="box-card-item">
+        <p><b>Item: </b><%= item.name %></p>
+      </div>
+      <div class="box-card-item">
+        <p><b>Box: </b><%= item.box.name %></p>
+      </div>
+      <div class="box-card-item">
+        <p><b>Comments: </b><%= item.comment %></p>
+      </div>
+      <div class="edit">
+        <%= link_to edit_item_path(item.id) do %>
+          <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
+        <% end %>
+      </div>
+      <div class="delete">
+        <%= link_to item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+          <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 

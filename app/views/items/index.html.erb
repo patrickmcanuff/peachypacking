@@ -10,7 +10,7 @@
       value: ""
     %>
 
-    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %> 
+    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
   <% end %>
   <h1><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
     Add item <i class="fas fa-plus-circle" style="color: #FF7A00"></i>
@@ -28,6 +28,9 @@
     <div class="card-white">
       <div class="box-card-item">
         <p><b>Item: </b><%= item.name %></p>
+      </div>
+      <div class="box-card-item">
+        <p><b>Box: </b><%= item.box.name %></p>
       </div>
       <div class="box-card-item">
         <p><b>Comments: </b><%= item.comment %></p>
