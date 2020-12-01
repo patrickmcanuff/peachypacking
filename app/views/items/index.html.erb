@@ -6,14 +6,12 @@
     <%= hidden_field :project,:id, value: @project.id %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
-      value: "Search your projects"
+      class: "form-control w-75",
+      value: ""
     %>
-    <br>
-    <%= submit_tag "Search", class: "btn btn-primary"%>
-  <br>
+
+    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %> 
   <% end %>
-  <br>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
     Add item
   </button>
@@ -30,10 +28,6 @@
     <br>
     <%= link_to "Delete this item", item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} %>
   <% end %>
-  <br>
-  <br>
-  <br>
-  <%= link_to "Back", project_path(params[:project_id]) %>
 </div>
 
 <%= render "new" %>
