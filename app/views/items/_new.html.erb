@@ -1,0 +1,32 @@
+<div class="modal fade" id="newItemModal" tabindex="-1" role="dialog" aria-labelledby="newItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newItemModalLabel">Create a new item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for([@project, @item]) do |f| %>
+        <div class="modal-body">
+          <div class='d-flex justify-content-between'>
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'border-top-0 border-right-0 border-left-0 mb-4 shadow-none' %>
+          </div>
+          <div class='d-flex justify-content-between'>
+            <%= f.label :comment %>
+            <%= f.text_field :comment, class: 'border-top-0 border-right-0 border-left-0 mb-4' %>
+          </div>
+          <div class='d-flex justify-content-between'>
+            <%= f.label :Box %>
+            <%= f.collection_select(:box_id, Box.where(project: @project), :id, :name, {include_blank: true}, class: 'border-top-0 border-right-0 border-left-0 mb-4 w-50')  %>
+          </div>
+        </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <%= f.submit class: 'btn btn-success' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

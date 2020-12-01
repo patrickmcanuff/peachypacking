@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     end
     if @item.save
      # @tag = Tag.find(params[:item][:tags])
-     #  itemtag = ItemTag.create(tag_id: @tag.id, item_id: @item.id)
+     # itemtag = ItemTag.create(tag_id: @tag.id, item_id: @item.id)
       if @item.box == nil
         redirect_to project_items_path(project)
       else
@@ -60,6 +60,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.where(project_id: params[:project_id], box_id: nil)
+    @project = Project.find(params[:project_id])
+    @item = Item.new
   end
 
   def item_params
