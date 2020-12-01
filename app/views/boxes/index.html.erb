@@ -18,14 +18,13 @@
 
 
 
-<div class ="container">
+
   <% if @boxes.empty? %>
     <p>You have no boxes.</p>
   <% else %>
   <% end %>
-</div>
 
-<div class ="container">
+
   <% @boxes.each do |box| %>
     <%= link_to project_box_path(box.project_id, box.id) do %>
       <div class="card-white">
@@ -51,7 +50,6 @@
       </div>
     <% end %>
   <% end %>
-</div>
 
 <br>
 
@@ -60,4 +58,3 @@
 <%= link_to "Back", project_path(params[:project_id]) %>
 </div>
 <%= render "new" %>
-</div>
