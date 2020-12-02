@@ -5,3 +5,4 @@ codeReader.decodeOnceFromVideoDevice(undefined, video).then((result) => {
   document.getElementById('result').textContent = result.text
   location.href = result.text;
 });
+stop()
