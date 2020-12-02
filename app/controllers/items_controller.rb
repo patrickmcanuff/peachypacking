@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     if item.box == nil
       redirect_to project_items_path(item.project.id)
     else
-    redirect_to project_box_path(item.project.id, item.box.id)
+      redirect_to project_box_path(item.project.id, item.box.id)
     end
   end
 
