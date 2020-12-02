@@ -13,7 +13,7 @@
 
   <body>
 
-    <% unless request.path == '/projects' %>
+    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/'  %>
       <%= render 'shared/sign-out-button' %>
     <% end %>
 
