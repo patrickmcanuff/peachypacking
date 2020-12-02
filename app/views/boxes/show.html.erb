@@ -8,7 +8,6 @@
     %>
     <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
   <% end %>
-
   <div class="d-flex justify-content-around">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">
       Add item  <i class="fas fa-plus-circle" style="color:#FF7A00"></i>
@@ -17,7 +16,6 @@
       <%= link_to "Print QR", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
     </button>
   </div>
-
   <div class="card-white">
     <h1><%= @box.name %></h1>
     <div class="box-card-item d-flex justify-content-around">
@@ -51,7 +49,6 @@
         <% end %>
       </div>
     </div>
-    </ul>
     <div class="edit">
       <%= link_to edit_box_path(@box) do %>
         <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
