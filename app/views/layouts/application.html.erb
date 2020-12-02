@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Peachypacking</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Peachy Packing</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+  <%= favicon_link_tag asset_path('peach-favicon.ico') %>
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  </head>
-
-  <body>
-
-    <% unless request.path == '/projects' %>
-      <%= render 'shared/sign-out-button' %>
-    <% end %>
-
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
-
-
-
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' ||
-      (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' ||
-      (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show")%>
-
-
-      <%= render 'shared/footer-most-pages' %>
-    <% end %>
-
-
-
-  </body>
-
+<body>
+<% unless request.path == '/projects' %>
+  <%= render 'shared/sign-out-button' %>
+<% end %>
+<%= render 'shared/flashes' %>
+<%= yield %>
+<% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' ||
+  (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' ||
+  (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show")%>
+  <%= render 'shared/footer-most-pages' %>
+<% end %>
+</body>
 </html>
 
