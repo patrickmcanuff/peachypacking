@@ -7,9 +7,46 @@
   margin: auto;
   border-radius: 5px;
   position: cent;
+  display: flex;
+  justify-content: center;
+}
+
+.card-icon-white-icons {
+  background: $white;
+  box-shadow: 1px 1px 2px 3px #f3f1f1;
+  width: 250px;
+  height: 148px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin: auto;
+  border-radius: 5px;
+  position: cent;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
 }
 
 .box-icon-item {
   padding: 0px;
   text-align: center;
+  justify-content: space-around;
+}
+
+.card-icon-body {
+  color:grey;
+  font-size: 29px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.card-icon-body-items {
+  color:grey;
+  font-size: 29px;
+  text-align: center;
+  margin-top: 30px;
+  padding: 0px;
 }

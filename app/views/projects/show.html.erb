@@ -1,68 +1,59 @@
+<h1 class='mt-5'>Ready to get organized?</h1>
+<br>
 <div class="container">
-
-  <h1 class='mt-5'>Ready to get organized?</h1>
-  <br>
-
-  <div class="container">
-    <%= form_tag search_path, method: :get do %>
-      <%= hidden_field :project,:id, value: @project.id %>
-      <%= text_field_tag :query,
-                         params[:query],
-                         class: "form-control",
-                         value: ""
-      %>
-      <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
-    <% end %>
-  </div>
-  <br>
-
-
-
-  <div class ="container">
-    <%= link_to project_boxes_path(@project.id) do %>
-      <div class="card-icon-white">
-        <div class="box-icon-item">
-          <i class="fas fa-archive fa-8x" style="color: #FF7A00"></i>
-        </div>
+  <%= form_tag search_path, method: :get do %>
+    <%= hidden_field :project,:id, value: @project.id %>
+    <%= text_field_tag :query,
+                       params[:query],
+                       class: "form-control",
+                       value: ""
+    %>
+    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
+  <% end %>
+</div>
+<br>
+<div class="card-icon-body">BOXES</div>
+<div class ="container">
+  <%= link_to project_boxes_path(@project.id) do %>
+    <div class="card-icon-white">
+      <div class="box-icon-item">
+        <i class="fas fa-archive fa-8x" style="color: #FF7A00"></i>
       </div>
-    <% end %>
-  </div>
-
-
-
-
-
-  <div class="card-body">
-    BOXES
-    <br>
-    <div class="container" id="boxes">
-      <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766460/box_card_in_home_xmcbkk.png"), project_boxes_path(@project.id)) %>
     </div>
-  </div>
-
-  <div class="card-body">
-    UNASSIGNED ITEMS
-  </div>
-  <div class="container" id="container">
-    <%= link_to(image_tag("https://res.cloudinary.com/drllepyzu/image/upload/v1606766121/item_card_in_home_1_fge3pd.png"), project_items_path(@project.id)) %>
-  </div>
-  <br>
-  <br>
-  <br>
-  <div class="card-body">
-    SCAN
-    <div>
-      <img src="https://res.cloudinary.com/drllepyzu/image/upload/v1606764048/qr-code_zqik6b.png" alt="QR" id="icon"></div>
-    <%= link_to 'Scan your box', new_project_box_path(@project.id) %>
-  </div>
-
+  <% end %>
+</div>
+<div class="card-icon-body-items">ITEMS</div>
+<div class ="container">
+  <%= link_to project_items_path(@project.id) do %>
+    <div class="card-icon-white-icons">
+      <div class="box-icon-item">
+        <i class="fas fa-bed fa-3x" style="color: #FF7A00"></i>
+      </div>
+      <div class="box-icon-item">
+        <i class="fas fa-tv fa-3x" style="color: #FF7A00"></i>
+      </div>
+      <div class="box-icon-item">
+        <i class="fas fa-bicycle fa-3x" style="color: #FF7A00"></i>
+      </div>
+      <div class="box-icon-item">
+        <i class="fas fa-couch fa-3x" style="color: #FF7A00"></i>
+      </div>
+    </div>
+  <% end %>
 </div>
 
+
+<div class="card-icon-body-items">SCAN</div>
+<div class ="container">
+  <%= link_to new_project_box_path(@project.id) do %>
+    <div class="card-icon-white">
+      <div class="box-icon-item">
+        <i class="fas fa-qrcode fa-8x" style="color: #FF7A00"></i>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Add box', new_project_box_path(@project.id) %>
 <%= link_to 'Add item', new_project_item_path(@project.id) %>
-
-
-</div>
-
 
