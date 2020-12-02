@@ -18,6 +18,9 @@
 
 
 <div class ="container">
+  <% if @boxes.empty? %>
+          <p class="pt-5 text-center" id="empty"> You have no boxes </p>
+        <% end %>
   <% @boxes.each do |box| %>
     <%= link_to project_box_path(box.project_id, box.id) do %>
       <div class="card-white">

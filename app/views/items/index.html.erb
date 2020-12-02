@@ -19,7 +19,7 @@
 
   <div class ="container">
     <% if @items.empty? %>
-      <p> You have no item without a box</p>
+      <p class="pt-5 text-center" id="empty"> You have no items</p>
     <% end %>
 
     <% @items.each do |item| %>
