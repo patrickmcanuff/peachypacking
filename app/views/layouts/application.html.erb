@@ -12,7 +12,11 @@
   </head>
 
   <body>
-    <%= render 'shared/sign-out-button' %>
+
+    <% unless request.path == '/projects' %>
+      <%= render 'shared/sign-out-button' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
 
     <%= yield %>
