@@ -25,7 +25,8 @@
 
     <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' ||
       (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' ||
-      (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show")%>
+      (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show") ||
+      (controller_name == "projects" && action_name == "scan") %>
 
 
       <%= render 'shared/footer-most-pages' %>
