@@ -12,6 +12,10 @@ class BoxesController < ApplicationController
 
   def destroy
     box = Box.find(params[:id])
+    items = Item.where(box: box)
+    items.each do |item|
+      item.update(box_id: nil)
+    end
     box.destroy
     redirect_to project_boxes_path(box.project)
   end
