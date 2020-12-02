@@ -12,11 +12,15 @@
   </head>
 
   <body>
+
+    <% unless request.path == '/projects' %>
+      <%= render 'shared/sign-out-button' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
 
     <%= yield %>
 
-    <%= render 'shared/sign-out-button' %>
 
 
     <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' || (controller_name == "items" && action_name == "edit")%>
