@@ -1,6 +1,6 @@
+<div class="container">
 <h1 class='mt-5'>Ready to get organized?</h1>
 <br>
-<div class="container">
   <%= form_tag search_path, method: :get do %>
     <%= hidden_field :project,:id, value: @project.id %>
     <%= text_field_tag :query,
@@ -10,7 +10,6 @@
     %>
     <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
   <% end %>
-</div>
 <br>
 <div class="card-icon-body">BOXES</div>
 <div class ="container">
@@ -51,6 +50,6 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'Add box', new_project_box_path(@project.id) %>
-<%= link_to 'Add item', new_project_item_path(@project.id) %>
+</div>
+
 
