@@ -1,13 +1,7 @@
-import { BrowserQRCodeReader } from '@zxing/library';
-
+import { BrowserQRCodeReader } from '@zxing/browser';
 const codeReader = new BrowserQRCodeReader();
-
-codeReader
-  .decodeFromInputVideoDevice(undefined, 'video')
-  .then((result) => {
-    // process the result
-    console.log(result.text)
-
-    document.getElementById('result').textContent = result.text
-  })
-  .catch(err => console.error(err));
+const video = document.querySelector("#video");
+codeReader.decodeOnceFromVideoDevice(undefined, video).then((result) => {
+  document.getElementById('result').textContent = result.text
+  location.href = result.text;
+});

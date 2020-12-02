@@ -17,17 +17,6 @@
 </button></h1>
 
 
-
-<div class ="container">
-  <% if @boxes.empty? %>
-    <p>You have no boxes.</p>
-  <% else %>
-    <div>
-      <h2 class="title">Your boxes</h2>
-    </div>
-  <% end %>
-</div>
-
 <div class ="container">
   <% @boxes.each do |box| %>
     <%= link_to project_box_path(box.project_id, box.id) do %>
@@ -36,7 +25,7 @@
           <p><b>Box: </b><%= box.name %></p>
         </div>
         <div class="box-card-item">
-          <p><b>Size: </b><%= box.size.capitalize %></p>
+          <p><b>Size: </b><%= box.size&.capitalize %></p>
         </div>
         <div class="box-card-item">
           <p><b>Comments: </b><%= box.comment %></p>
