@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Peachypacking</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+<!--  Le Wagon tutorial for meta tags (including Facebook & Twitter below) -->
+  <title><%= meta_title %></title>
+  <meta name="description" content="<%= meta_description %>">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <!-- Facebook Open Graph data -->
+  <meta property="og:title" content="<%= meta_title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= meta_image %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
+  <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  </head>
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:title" content="<%= meta_title %>">
+  <meta name="twitter:description" content="<%= meta_description %>">
+  <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:image:src" content="<%= meta_image %>">
 
-  <body>
+<!--  Original head stuff -->
+  <title>Peachy Packing</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+  <%= favicon_link_tag asset_path('peach-favicon.ico') %>
+</head>
 
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/'  %>
-      <%= render 'shared/sign-out-button' %>
-    <% end %>
-
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
-
-
-
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' ||
-      (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' ||
-      (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show") ||
-      (controller_name == "projects" && action_name == "scan") %>
-
-
-      <%= render 'shared/footer-most-pages' %>
-    <% end %>
-
-
-
-  </body>
-
-</html>
-
+<body>
+<% unless request.path == '/projects' %>
+  <%= render 'shared/sign-out-button' %>
+<% end %>
+<%= render 'shared/flashes' %>
+<%= yield %>
+<% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' ||
+  (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' ||
+  (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show")%>
+  <%= render 'shared/footer-most-pages' %>
+<% end %>
+</body>

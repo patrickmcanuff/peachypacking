@@ -1,0 +1,5 @@
+meta_product_name: "Peachy Packing"
+meta_title: "Peachy Packing - Stay organized when you're moving!"
+meta_description: "Peachy Packing is here to help you keep track of all your belongings when you're moving!"
+meta_image: "meta-picture.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
