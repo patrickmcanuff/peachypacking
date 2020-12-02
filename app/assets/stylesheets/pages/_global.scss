@@ -8,6 +8,17 @@ body{
   overflow-x: hidden;
 }
 
+.card-white {
+  background: $white;
+  box-shadow: 1px 1px 2px 3px #f3f1f1;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
 .footer {
   background-color: $white;
   padding: 28px;
