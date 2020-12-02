@@ -14,7 +14,7 @@ class BoxesController < ApplicationController
     box = Box.find(params[:id])
     items = Item.where(box: box)
     items.each do |item|
-      item.box = nil
+      item.update(box_id: nil)
     end
     box.destroy
     redirect_to project_boxes_path(box.project)
