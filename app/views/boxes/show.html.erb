@@ -17,12 +17,8 @@
       <%= link_to "Print QR", "/projects/#{@box.project_id}/boxes/#{@box.id}/qr_show.pdf" %>
     </button>
   </div>
-<!--   <div class="card-white">
- --><!--     <div class="box-card-item pl-4">
- --> <!--       <div><b>Size: </b><%# @box.size&.capitalize %></div>
-      <div><b>Comment: </b><%# @box.comment&.capitalize %></div> -->
-<!--     </div>
- -->    <div class="box-card-item">
+
+ <div class="box-card-item">
       <div class ="container">
         <% if @box.items.empty? %>
           <p> You have no item. </p>
@@ -50,18 +46,6 @@
       </div>
     </div>
   </div>
-    <!-- <div class="edit">
-      <%# link_to edit_box_path(@box) do %>
-        <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
-      <%# end %>
-    </div>
-    <div class="delete">
-      <%# link_to box_path(@box), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
-        <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
-      <%# end %>
-    </div> -->
-<!--   </div>
-</div>
-<br> -->
+
 <%= render partial: "items/new", locals: {box: @box} %>
 
