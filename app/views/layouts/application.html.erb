@@ -23,7 +23,9 @@
 
 
 
-    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' || (controller_name == "items" && action_name == "edit")%>
+    <% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' ||
+      (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' ||
+      (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show")%>
 
 
       <%= render 'shared/footer-most-pages' %>

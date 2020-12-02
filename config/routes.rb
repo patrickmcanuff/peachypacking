@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/projects/search', to: 'projects#search', as: :search
   get '/projects/home', to: 'projects#home', as: :home
-  get '/projects/home/scan', to: 'projects#scan', as: :scan
+  get '/scan', to: 'projects#scan', as: :scan
   get '/projects', to: 'projects#index'
   get '/projects/new', to: 'projects#new'
   get 'tags/:tag', to: 'boxes#index', as: :tag
