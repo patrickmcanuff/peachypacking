@@ -21,7 +21,7 @@
  <div class="box-card-item">
       <div class ="container">
         <% if @box.items.empty? %>
-          <p> You have no item. </p>
+          <p class="pt-5 text-center" id="empty"> This box is empty </p>
         <% end %>
         <% @box.items.each do |item| %>
           <div class="card-white">
