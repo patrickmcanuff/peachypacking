@@ -33,12 +33,12 @@
 </head>
 
 <body>
-<% unless request.path == '/projects'|| request.path == '/users/sign_in' || request.path == '/' || request.path == '/users/sign_up'%>
+<% unless request.path == '/projects'|| request.path == '/users/sign_in' || request.path == '/' || request.path == '/users/sign_up' || request.path == '/scan' || (controller_name == "boxes" && action_name == "qr_show")%>
   <%= render 'shared/sign-out-button' %>
 <% end %>
 <%= render 'shared/flashes' %>
 <%= yield %>
-<% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' ||
+<% unless request.path == '/projects' || request.path == '/users/sign_in' || request.path == '/' || request.path == '/scan' ||
   (controller_name == "boxes" && action_name == "edit") || request.path == '/users/sign_up' ||
   (controller_name == "items" && action_name == "edit") || (controller_name == "boxes" && action_name == "qr_show")%>
   <%= render 'shared/footer-most-pages' %>
