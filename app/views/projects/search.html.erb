@@ -15,11 +15,7 @@
   </div>
 
 
-  <br>
-  <!-- if boxes are available, render boxes orelse tell user no boxes found %> -->
-
-  <!-- if items are available, render items orelse tell user no items found %> -->
-  <div class ="container">
+  <div class ="container ">
     <% @boxes.each do |box| %>
       <%= link_to project_box_path(box.project_id, box.id) do %>
         <div class="card-white">
@@ -54,7 +50,7 @@
           <p><b>Item: </b><%= item.name %></p>
         </div>
         <div class="box-card-item">
-          <p><b>Box: </b><%= item.box.name %></p>
+          <p><b>Box: </b><%= item.box_id&.name %></p>
         </div>
         <div class="box-card-item">
           <p><b>Comments: </b><%= item.comment %></p>
