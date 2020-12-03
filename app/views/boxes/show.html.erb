@@ -18,34 +18,32 @@
     </button>
   </div>
 
- <div class="box-card-item">
-      <div class ="container">
-        <% if @box.items.empty? %>
-          <p class="pt-5 text-center" id="empty"> This box is empty </p>
-        <% end %>
-        <% @box.items.each do |item| %>
-          <div class="card-white">
-            <div class="box-card-item">
-              <p><b>Item: </b><%= item.name&.capitalize %></p>
-            </div>
-            <div class="box-card-item">
-              <p><b>Comments: </b><%= item.comment&.capitalize %></p>
-            </div>
-            <div class="edit">
-              <%= link_to edit_item_path(item.id) do %>
-                <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
-              <% end %>
-            </div>
-            <div class="delete">
-              <%= link_to item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
-                <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+  <div class ="container padding-bottom">
+    <% if @box.items.empty? %>
+      <p class="pt-5 text-center" id="empty"> This box is empty </p>
+    <% end %>
+    <% @box.items.each do |item| %>
+      <div class="card-white">
+        <div class="box-card-item">
+          <p><b>Item: </b><%= item.name&.capitalize %></p>
+        </div>
+        <div class="box-card-item">
+          <p><b>Comments: </b><%= item.comment&.capitalize %></p>
+        </div>
+        <div class="edit">
+          <%= link_to edit_item_path(item.id) do %>
+            <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
+          <% end %>
+        </div>
+        <div class="delete">
+          <%= link_to item_path(item.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+            <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
+</div>
 
 <%= render partial: "items/new", locals: {box: @box} %>
 
