@@ -1,56 +1,51 @@
 <div class="container">
 
-<h1 class='my-5'>Your boxes</h1>
+  <h1 class='my-5'>Your boxes</h1>
 
-<%= form_tag search_path, method: :get do %>
-  <%= hidden_field :project,:id, value: @project.id %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    value: ""
-  %>
-  <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
-<% end %>
-
-<h1><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
-  Add box <i class="fas fa-plus-circle" style="color:#FF7A00"></i>
-</button></h1>
-
-
-<div class ="container">
-  <% if @boxes.empty? %>
-          <p class="pt-5 text-center" id="empty"> You have no boxes </p>
-        <% end %>
-  <% @boxes.each do |box| %>
-    <%= link_to project_box_path(box.project_id, box.id) do %>
-      <div class="card-white">
-        <div class="box-card-item">
-          <p><b>Box: </b><%= box.name %></p>
-        </div>
-        <div class="box-card-item">
-          <p><b>Size: </b><%= box.size&.capitalize %></p>
-        </div>
-        <div class="box-card-item">
-          <p><b>Comments: </b><%= box.comment %></p>
-        </div>
-        <div class="edit">
-          <%= link_to edit_box_path(box.id) do %>
-            <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
-          <% end %>
-        </div>
-        <div class="delete">
-          <%= link_to box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
-            <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+  <%= form_tag search_path, method: :get do %>
+    <%= hidden_field :project,:id, value: @project.id %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      value: ""
+    %>
+    <%= image_submit_tag("search.png", class: 'search_button', alt: 'Find') %>
   <% end %>
-</div>
 
-<br>
+  <h1><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBoxModal">
+    Add box <i class="fas fa-plus-circle" style="color:#FF7A00"></i>
+  </button></h1>
 
-<br>
-<br>
+
+  <div class ="container padding-bottom">
+    <% if @boxes.empty? %>
+      <p class="pt-5 text-center" id="empty"> You have no boxes </p>
+    <% end %>
+    <% @boxes.each do |box| %>
+      <%= link_to project_box_path(box.project_id, box.id) do %>
+        <div class="card-white">
+          <div class="box-card-item">
+            <p><b>Box: </b><%= box.name %></p>
+          </div>
+          <div class="box-card-item">
+            <p><b>Size: </b><%= box.size&.capitalize %></p>
+          </div>
+          <div class="box-card-item">
+            <p><b>Comments: </b><%= box.comment %></p>
+          </div>
+          <div class="edit">
+            <%= link_to edit_box_path(box.id) do %>
+              <i class="fas fa-edit fa-lg" style="color: #FF7A00"></i>
+            <% end %>
+          </div>
+          <div class="delete">
+            <%= link_to box_path(box.id), method: :delete, :data => {:confirm => 'Are you sure? '} do %>
+              <i class="fas fa-minus-circle fa-lg" style="color: #FF7A00"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 <%= render "new" %>
