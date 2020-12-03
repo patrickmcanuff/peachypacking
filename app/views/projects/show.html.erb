@@ -12,7 +12,6 @@
   <% end %>
 <br>
 <div class="card-icon-body">BOXES</div>
-<div class ="container">
   <%= link_to project_boxes_path(@project.id) do %>
     <div class="card-icon-white">
       <div class="box-icon-item">
@@ -20,9 +19,7 @@
       </div>
     </div>
   <% end %>
-</div>
 <div class="card-icon-body-items">UNASSIGNED ITEMS</div>
-<div class ="container">
   <%= link_to project_items_path(@project.id) do %>
     <div class="card-icon-white-icons">
       <div class="box-icon-item">
@@ -39,15 +36,12 @@
       </div>
     </div>
   <% end %>
-</div>
 <div class="card-icon-body-items">SCAN</div>
-<div class ="container">
   <%= link_to scan_path do %>
-    <div class="card-icon-white">
+    <div class="card-scan">
       <div class="box-icon-item">
         <i class="fas fa-qrcode fa-8x" style="color: #FF7A00"></i>
       </div>
     </div>
   <% end %>
-</div>
 </div>
