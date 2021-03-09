@@ -1,11 +1,11 @@
-# Peachy Packing
+## Peachy Packing
 
-Peachy Packing is here to help you keep track of all your belongings when you're moving!
+Peachy Packing is here to help you keep track of all your belongings while you're moving. All too often, items are thrown into boxes and are unable to be found when they're needed. Peachy Packing solves this problem by allowing you to catalogue your belongings as necessary and scan boxes for their contents. It was designed with mobile in mind and works great on your phone.
 
-## What's the point?
+You can start by adding items or boxes. Items may be assigned to a box, or left as an unassigned item. Both items and boxes have a comment section. The search bar looks for names, comments, and box sizes. A cool feature is the ability to print a QR code to tape onto a box. This allows you to later scan the box for a quick view of its contents.
 
-Peachy Packing was made as a student project to address the need for a more systematic and organized way of cataloguing belongings while moving. Too often items are thrown into boxes and not able to be found when they're needed. All of your belongings are searchable which allows you to locate items quickly. After printing a box's QR code, it may be scanned in order to bring up the box's contents.
+Peachy Packing was made in less than two weeks as a final project at [Le Wagon (Montréal)](https://www.lewagon.com). Check out our:
 
-## How does it work?
+-[Website](https://peachypacking.herokuapp.com)
 
-Peachy Packing allows you to create both boxes and items. Items may be added to boxes or left by themselves. Comments and other details allow the user to personalize their packing experience in the best way possible. When needed, users may search for any aspect of a belonging such as a specific item to see which box it is in. QR codes are automatically generated with each new box. Users can print and then tape the QR code to a box in order to scan it later from within the app to bring up all of the items inside.
+-[Live product demo](https://youtu.be/G1DXGS1jS1w?t=2275)
